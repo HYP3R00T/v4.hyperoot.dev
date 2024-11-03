@@ -1,3 +1,139 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+  :root {
+    --darkest: #171923;
+    --darker: #2D3748;
+    --dark: #4A5568;
+
+    --light: #A0AEC0;
+    --lighter: #E2E8F0;
+    --lightest: #F7FAFC;
+
+    --white: #f0f8ff;
+    --accent: #63b3ed;
+
+    --accent-transparent: #63b3ed2d;
+    --blurred: #2d374859;
+    --blob: #63b3ed9c;
+
+    /* ED64A6 */
+    --astro-code-color-background: #2d374859;
+    --astro-code-color-text: #E2E8F0;
+    --astro-code-token-constant: #B794F4;
+    --astro-code-token-string: #64ed76;
+    --astro-code-token-comment: #718096;
+    --astro-code-token-keyword: #B794F4;
+    --astro-code-token-parameter: #FC8181;
+    --astro-code-token-function: #63b3ed;
+    --astro-code-token-string-expression: #68D391;
+    --astro-code-token-punctuation: #FC8181;
+    --astro-code-token-link: #68D391;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-dark scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-light;
+  }
+}
+
+h1 {
+  @apply scroll-m-20 text-4xl font-bold lg:text-5xl tracking-tight pt-2;
+}
+
+h2 {
+  @apply mt-5 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-wide first:mt-0;
+}
+
+h3 {
+  @apply mt-3 scroll-m-20 text-2xl font-semibold tracking-tight;
+}
+
+h4 {
+  @apply mt-2 scroll-m-20 text-xl font-semibold tracking-tight;
+}
+
+p {
+  @apply [&:not(:first-child)]:mt-2;
+}
+
+a {
+  @apply no-underline text-lightest hover:text-accent font-semibold text-lg;
+}
+
+::selection {
+  @apply bg-accent text-dark;
+}
+
+/* ===== scrollbar ===== */
+
+/* width */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-darker;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-light border-darker rounded;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}
+
+/* ===== pattern ===== */
+.pattern {
+  --dot-bg: hsl(var(--background));
+  --dot-color: hsl(var(--foreground));
+  --dot-size: 1px;
+  --dot-space: 80px;
+  background:
+    linear-gradient(90deg,
+      var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+      transparent 1%) center / var(--dot-space) var(--dot-space),
+    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+      transparent 1%) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
+
+/* ===== codeblock ===== */
+
+.astro-code {
+  @apply p-4 mt-2 hover:bg-accenttransparent hover:text-lightest;
+}
+
+code {
+  @apply bg-transparent
+}
+
+/* ===== prose ===== */
+
+.prose * {
+  @apply my-4 first:my-0
+}
+
+.prose iframe {
+  @apply w-full aspect-video h-full
+}
+
+.prose code:not(.astro-code code) {
+  @apply bg-darkest text-lighter py-1 px-2 rounded;
+}
+
+.prose p {
+  @apply text-lighter
+}

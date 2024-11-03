@@ -1,7 +1,7 @@
 import { SITE } from "@/config";
 import { defineCollection, z } from "astro:content";
 
-const blog = defineCollection({
+const article = defineCollection({
     type: "content",
     schema: z.object({
         author: z.string().default(SITE.author),
@@ -17,4 +17,4 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+export const collections = { article };

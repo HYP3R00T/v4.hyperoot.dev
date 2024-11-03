@@ -1,0 +1,39 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import type { MarkdownHeading } from "astro";
+
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+
+import type { ArticleProps, Heading } from "@/lib/types";
+
+export async function getStaticPaths() {
+    const posts: ArticleProps[] = await getCollection("article");
+    const headings: MarkdownHeading[][] = await Promise.all(
+        posts.map((entry) =>
+            entry.render().then((data: { headings: any }) => data.headings),
+        ),
+    );
+
+    const posts_ = posts.map((entry: { slug: any }, index: number) => {
+        return {
+            params: { slug: entry.slug },
+            props: { entry, headings: headings[index] },
+        };
+    });
+    return posts_;
+}
+
+const { entry, headings } = Astro.props as {
+    entry: CollectionEntry<"article">;
+    headings: Heading[];
+};
+
+const { Content } = await entry.render();
+const idAndData = { headings, ...entry.data };
+---
+
+<div class="w-full">
+    <ArticleLayout {...idAndData}>
+        <Content />
+    </ArticleLayout>
+</div>

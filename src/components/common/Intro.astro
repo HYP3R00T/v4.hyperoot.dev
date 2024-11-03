@@ -1,0 +1,83 @@
+---
+
+---
+
+<a
+    href="/"
+    class="flex flex-col items-center lg:items-start w-full"
+    id="whoami"
+>
+    <h1
+        class="text-6xl tracking-tighter text-white font-mono uppercase"
+        id="name"
+    >
+        Rajesh Das
+    </h1>
+    <h4 class="text-accent font-mono">Software Developer</h4>
+    <p class="text-light font-semibold">I build tools for developers.</p>
+</a>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const name: any = document.getElementById("name");
+        const whoami: any = document.getElementById("whoami");
+
+        whoami.addEventListener("mouseover", () => {
+            name.innerText = "Hyperoot";
+            name.dataset.value = "Hyperoot";
+            const letters =
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            let interval: any = null;
+            let iteration = 0;
+            clearInterval(interval);
+
+            interval = setInterval(() => {
+                name.innerText = name.innerText
+                    .split("")
+                    .map((letter: any, index: any) => {
+                        if (index < iteration) {
+                            return name.dataset.value[index];
+                        }
+
+                        return letters[Math.floor(Math.random() * 62)];
+                    })
+                    .join("");
+
+                if (iteration >= name.dataset.value.length) {
+                    clearInterval(interval);
+                }
+
+                iteration += 1 / 3;
+            }, 30);
+        });
+
+        whoami.addEventListener("mouseout", () => {
+            name.innerText = "Rajesh Das";
+            name.dataset.value = "Rajesh Das";
+            const letters =
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+            let interval: any = null;
+            let iteration = 0;
+            clearInterval(interval);
+
+            interval = setInterval(() => {
+                name.innerText = name.innerText
+                    .split("")
+                    .map((letter: any, index: any) => {
+                        if (index < iteration) {
+                            return name.dataset.value[index];
+                        }
+
+                        return letters[Math.floor(Math.random() * 62)];
+                    })
+                    .join("");
+
+                if (iteration >= name.dataset.value.length) {
+                    clearInterval(interval);
+                }
+
+                iteration += 1 / 3;
+            }, 30);
+        });
+    });
+</script>
