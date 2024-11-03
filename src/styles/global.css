@@ -82,7 +82,7 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-darker;
+  @apply bg-darker rounded;
 }
 
 /* Handle */
