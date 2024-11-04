@@ -7,75 +7,89 @@ import Button from "@/components/base/Button.astro";
 import type { ArticleProps } from "@/lib/types";
 
 const posts: ArticleProps[] = await getCollection("article").then(
-    (p: ArticleProps[]) => p.filter(({ data }) => !data.draft),
+  (p: ArticleProps[]) => p.filter(({ data }) => !data.draft)
 );
 posts.sort((a, b) => {
-    const aDate = new Date(a.data.modDatetime ?? a.data.pubDatetime).valueOf();
-    const bDate = new Date(b.data.modDatetime ?? b.data.pubDatetime).valueOf();
-    return bDate - aDate;
+  const aDate = new Date(a.data.modDatetime ?? a.data.pubDatetime).valueOf();
+  const bDate = new Date(b.data.modDatetime ?? b.data.pubDatetime).valueOf();
+  return bDate - aDate;
 });
 ---
 
 <section class="hidden lg:flex flex-col">
-    {
-        posts.map((post) => (
-            <a
-                href={`/article/${post.slug}/`}
-                class="article p-4 rounded-lg hidden lg:flex lg:flex-col flex-1 gap-1 text-light hover:shadow hover:bg-blurred"
-            >
-                <h4 class="article-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest">
-                    {post.data.title}
-                </h4>
-                <div class="text-xs italic text-light font-light">
-                    <FormattedDate date={post.data.pubDatetime} />
-                    {post.data.modDatetime && (
-                        <div class="last-updated-on">
-                            Last updated on{" "}
-                            <FormattedDate date={post.data.modDatetime} />
-                        </div>
-                    )}
-                </div>
-                <p class="article-description text-pretty text-base font-normal">
-                    {post.data.description}
-                </p>
-                <div class="flex gap-2 py-2 font-mono flex-wrap">
-                    {post.data.tags?.map((tag: unknown) => {
-                        return <Button>{tag}</Button>;
-                    })}
-                </div>
-            </a>
-        ))
-    }
+  {
+    posts.map((post) => (
+      <a
+        href={`/article/${post.slug}/`}
+        class="article p-4 rounded-lg hidden lg:flex lg:flex-col flex-1 gap-1 text-light hover:shadow hover:bg-blurred"
+      >
+        <h4
+          class="article-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest"
+          transition:name={`title/${post.data.title}/`}
+        >
+          {post.data.title}
+        </h4>
+        <div
+          class="text-xs italic text-light font-light"
+          transition:name={`date/${post.data.title}/`}
+        >
+          <FormattedDate date={post.data.pubDatetime} />
+          {post.data.modDatetime && (
+            <div class="last-updated-on">
+              Last updated on <FormattedDate date={post.data.modDatetime} />
+            </div>
+          )}
+        </div>
+        <p class="article-description text-pretty text-base font-normal">
+          {post.data.description}
+        </p>
+        <div
+          class="flex gap-2 py-2 font-mono flex-wrap"
+          transition:name={`tags/${post.data.title}/`}
+        >
+          {post.data.tags?.map((tag: unknown) => {
+            return <Button>{tag}</Button>;
+          })}
+        </div>
+      </a>
+    ))
+  }
 </section>
 
 <section class="lg:hidden flex flex-col gap-4">
-    {
-        posts.map((post) => (
-            <a
-                href={`/article/${post.slug}/`}
-                class="article lg:hidden flex p-4 rounded-lg flex-col text-light bg-blurred"
-            >
-                <h4 class="article-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest">
-                    {post.data.title}
-                </h4>
-                <p class="article-description text-pretty text-base font-normal">
-                    {post.data.description}
-                </p>
-                <div class="flex gap-2 py-2 font-mono flex-wrap">
-                    {post.data.tags?.map((tag: unknown) => {
-                        return <Button>{tag}</Button>;
-                    })}
-                </div>
-            </a>
-        ))
-    }
+  {
+    posts.map((post) => (
+      <a
+        href={`/article/${post.slug}/`}
+        class="article lg:hidden flex p-4 rounded-lg flex-col text-light bg-blurred"
+      >
+        <h4
+          class="article-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest"
+          transition:name={`title/${post.data.title}/`}
+        >
+          {post.data.title}
+        </h4>
+        <p class="article-description text-pretty text-base font-normal">
+          {post.data.description}
+        </p>
+        <div
+          class="flex gap-2 py-2 font-mono flex-wrap"
+          transition:name={`tags/${post.data.title}/`}
+        >
+          {post.data.tags?.map((tag: unknown) => {
+            return <Button>{tag}</Button>;
+          })}
+        </div>
+      </a>
+    ))
+  }
 </section>
 
 <style>
-    :hover.article .article-title {
-        @apply text-accent;
-    }
-    :hover.article .article-description {
-        @apply text-lighter;
-    }
+  :hover.article .article-title {
+    @apply text-accent;
+  }
+  :hover.article .article-description {
+    @apply text-lighter;
+  }
 </style>

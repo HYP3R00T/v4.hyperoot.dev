@@ -7,42 +7,50 @@ import type { ArticlePostLayoutProps } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
 
 const {
-    author,
-    pubDatetime,
-    modDatetime,
-    title,
-    featured,
-    draft,
-    category,
-    tags,
-    description,
-    heroImage,
-    headings,
+  author,
+  pubDatetime,
+  modDatetime,
+  title,
+  featured,
+  draft,
+  category,
+  tags,
+  description,
+  heroImage,
+  headings,
 } = Astro.props as ArticlePostLayoutProps;
 ---
 
 <div class="pt-4 w-full flex flex-col flex-1">
-    <h1 class="pb-2 pt-0 italic">{capitalizeFirstLetter(title)}</h1>
-    <div class="mt-4 text-sm italic text-light">
-        <FormattedDate date={pubDatetime} />
-        {
-            modDatetime && (
-                <div class="last-updated-on">
-                    Last updated on <FormattedDate date={modDatetime} />
-                </div>
-            )
-        }
-    </div>
-    <div class="flex gap-2 py-2 font-mono flex-wrap">
-        {
-            tags?.map((tag) => {
-                return <Button>{tag}</Button>;
-            })
-        }
-    </div>
-    <hr class="mt-4" />
-    <div class="prose pt-4">
-        <slot />
-        <BacktoTop />
-    </div>
+  <h1 class="pb-2 pt-0 italic" transition:name={`title/${title}/`}>
+    {capitalizeFirstLetter(title)}
+  </h1>
+  <div
+    class="mt-4 text-sm italic text-light"
+    transition:name={`date/${title}/`}
+  >
+    <FormattedDate date={pubDatetime} />
+    {
+      modDatetime && (
+        <div class="last-updated-on">
+          Last updated on <FormattedDate date={modDatetime} />
+        </div>
+      )
+    }
+  </div>
+  <div
+    class="flex gap-2 py-2 font-mono flex-wrap"
+    transition:name={`tags/${title}/`}
+  >
+    {
+      tags?.map((tag) => {
+        return <Button>{tag}</Button>;
+      })
+    }
+  </div>
+  <hr class="mt-4" />
+  <div class="prose pt-4">
+    <slot />
+    <BacktoTop />
+  </div>
 </div>

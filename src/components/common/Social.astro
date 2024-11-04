@@ -5,17 +5,20 @@ import { Socials } from "@/config";
 ---
 
 <div class="flex gap-2 py-4">
-    {
-        Socials.filter((social) => social.active).map((social) => (
-            <a
-                href={social.href}
-                target="_blank"
-                class="no-underline aspect-square p-2 hover:text-accent hover:bg-accenttransparent rounded flex"
-            >
-                <button class="">
-                    <Icon name={social.name} class="w-[1.4rem] h-[1.4rem]" />
-                </button>
-            </a>
-        ))
-    }
+  {
+    Socials.filter((social) => social.active).map((social) => (
+      <a
+        href={social.href}
+        target="_blank"
+        class="no-underline aspect-square p-2 hover:text-accent hover:bg-accenttransparent rounded flex group"
+      >
+        <button class="">
+          <Icon
+            name={social.name}
+            class="w-[1.4rem] h-[1.4rem] group-hover:-rotate-12"
+          />
+        </button>
+      </a>
+    ))
+  }
 </div>

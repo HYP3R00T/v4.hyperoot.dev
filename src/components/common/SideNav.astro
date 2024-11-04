@@ -2,72 +2,72 @@
 import type { SideNavItem } from "@/lib/types";
 
 interface SideNav {
-    nav_item: SideNavItem[];
+  nav_item: SideNavItem[];
 }
 
 const { nav_item } = Astro.props as SideNav;
 ---
 
 <div
-    class="text-white hidden lg:flex flex-col gap-4 w-full hover:shadow hover:bg-blurred rounded-lg"
-    transition:name="side-nav"
-    transition:persist
+  class="text-white hidden lg:flex flex-col gap-4 w-full hover:shadow hover:bg-blurred rounded-lg"
+  transition:name="side-nav"
+  transition:persist
 >
-    {
-        nav_item.map((item: SideNavItem) => (
-            <a class="category-item px-4 first:pt-4 last:pb-4" href={item.href}>
-                <div class="category-line w-10 bg-light" />
-                <div class="category-link text-light">{item.label}</div>
-            </a>
-        ))
-    }
+  {
+    nav_item.map((item: SideNavItem) => (
+      <a class="category-item px-4 first:pt-4 last:pb-4" href={item.href}>
+        <div class="category-line w-10 bg-light" />
+        <div class="category-link text-light">{item.label}</div>
+      </a>
+    ))
+  }
 </div>
 
 <div
-    class="scrollbar-sm lg:hidden flex flex-row w-5/6 gap-6 text-white px-6 py-2 my-5 items-center justify-center border-blurred border-2"
+  class="scrollbar-sm lg:hidden flex flex-row w-5/6 gap-6 text-white px-6 py-2 my-5 items-center justify-center border-blurred border-2"
 >
-    {
-        nav_item.map((item: SideNavItem) => (
-            <a class="text-base" href={item.href}>
-                <div class="text-light">{item.label}</div>
-            </a>
-        ))
-    }
+  {
+    nav_item.map((item: SideNavItem) => (
+      <a class="text-base" href={item.href}>
+        <div class="text-light">{item.label}</div>
+      </a>
+    ))
+  }
 </div>
 
 <style>
-    .category-item {
-        @apply flex flex-row items-center gap-3;
-    }
-    :hover.category-item .category-line {
-        @apply h-px w-20 bg-accent;
-    }
-    :hover.category-item .category-link {
-        @apply text-accent;
-    }
-    .category-item .category-line {
-        @apply h-px;
-    }
-    .category-item .category-link {
-        @apply text-xs uppercase font-semibold tracking-wide;
-    }
-    .scrollbar::-webkit-scrollbar {
-        @apply w-0;
-    }
-    :hover.scrollbar::-webkit-scrollbar {
-        @apply w-1;
-    }
-    .scrollbar::-webkit-scrollbar-track {
-        @apply rounded;
-    }
-    .scrollbar-sm::-webkit-scrollbar {
-        @apply h-[2px];
-    }
-    .scrollbar-sm::-webkit-scrollbar-track {
-        @apply rounded bg-blurred;
-    }
+  .category-item {
+    @apply flex flex-row items-center gap-3;
+  }
+  :hover.category-item .category-line {
+    @apply h-px w-20 bg-accent;
+  }
+  :hover.category-item .category-link {
+    @apply text-accent;
+  }
+  .category-item .category-line {
+    @apply h-px;
+  }
+  .category-item .category-link {
+    @apply text-xs uppercase font-semibold tracking-wide;
+  }
+  .scrollbar::-webkit-scrollbar {
+    @apply w-0;
+  }
+  :hover.scrollbar::-webkit-scrollbar {
+    @apply w-1;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    @apply rounded;
+  }
+  .scrollbar-sm::-webkit-scrollbar {
+    @apply h-[2px];
+  }
+  .scrollbar-sm::-webkit-scrollbar-track {
+    @apply rounded bg-blurred;
+  }
 
-    .category-item > * {
-        @apply transition-all;
-    }
+  .category-item > * {
+    @apply transition-all;
+  }
 </style>

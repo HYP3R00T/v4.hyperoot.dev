@@ -10,17 +10,19 @@ const { title, description, ogImage } = Astro.props as BaseLayoutProps;
 ---
 
 <html lang=`${LOCALE.lang ?? "en"}`>
-    <head>
-        <HeadSEO
-            title=`${title ? capitalizeFirstLetter(title) : SITE.title}`
-            description={description}
-            ogImage={ogImage}
-        />
-    </head>
+  <head>
+    <HeadSEO
+      title=`${title ? capitalizeFirstLetter(title) : SITE.title}`
+      description={description}
+      ogImage={ogImage}
+    />
+  </head>
 
-    <body>
-        <main class="flex flex-col max-w-7xl min-h-dvh z-40 flex-1">
-            <slot />
-        </main>
-    </body>
+  <body>
+    <main class="flex justify-center">
+      <div class="flex flex-col max-w-7xl min-h-dvh z-40 flex-1">
+        <slot />
+      </div>
+    </main>
+  </body>
 </html>
