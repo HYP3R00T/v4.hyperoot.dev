@@ -1,11 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-import Intro from "@/components/common/Intro.astro";
-import Social from "@/components/common/Social.astro";
-import Articles from "@/components/article/Articles.astro";
-import SideNav from "@/components/common/SideNav.astro";
-
 import type { SideNavItem } from "@/lib/types";
 
 const nav_item: SideNavItem[] = [
@@ -17,20 +12,13 @@ const nav_item: SideNavItem[] = [
     label: "Articles",
     href: "/article",
   },
+  {
+    label: "Project",
+    href: "/project",
+  },
 ];
 ---
 
 <BaseLayout>
-  <div class="flex flex-col lg:flex-row flex-1">
-    <div
-      class="py-6 lg:py-20 px-4 lg:px-12 lg:w-2/5 lg:h-screen lg:sticky lg:top-0 flex flex-col lg:justify-between items-center lg:items-start"
-    >
-      <Intro />
-      <SideNav {nav_item} />
-      <Social />
-    </div>
-    <div class="lg:pt-[5.25rem] pb-6 lg:pb-20 px-4 lg:px-8 lg:w-3/5">
-      <h1>This is my world</h1>
-    </div>
-  </div>
+  <h1 transition:name="about">This is my world</h1>
 </BaseLayout>

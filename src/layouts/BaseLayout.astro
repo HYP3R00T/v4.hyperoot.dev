@@ -1,12 +1,14 @@
 ---
 import HeadSEO from "@/components/core/HeadSEO.astro";
+import ThemeSelector from "@/components/common/ThemeSelector.astro";
 
 import { LOCALE, SITE } from "@/config";
 
 import type { BaseLayoutProps } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
 
-const { title, description, ogImage } = Astro.props as BaseLayoutProps;
+const { title, description, image, imageAlt, contentType } =
+  Astro.props as BaseLayoutProps;
 ---
 
 <html lang=`${LOCALE.lang ?? "en"}`>
@@ -14,13 +16,16 @@ const { title, description, ogImage } = Astro.props as BaseLayoutProps;
     <HeadSEO
       title=`${title ? capitalizeFirstLetter(title) : SITE.title}`
       description={description}
-      ogImage={ogImage}
+      image={image}
+      imageAlt={imageAlt}
+      contentType={contentType}
     />
   </head>
 
   <body>
     <main class="flex justify-center">
       <div class="flex flex-col max-w-7xl min-h-dvh z-40 flex-1">
+        <!-- <ThemeSelector /> -->
         <slot />
       </div>
     </main>

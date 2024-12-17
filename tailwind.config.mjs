@@ -6,19 +6,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--darkest)",
-        foreground: "var(--white)",
+        bg_base: "var(--bg-base)",
+        bg_surface: "var(--bg-surface)",
+        bg_elevated: "var(--bg-elevated)",
+        fg_base: "var(--fg-base)",
+        fg_alternate: "var(--fg-alternate)",
+        fg_muted: "var(--fg-muted)",
         accent: "var(--accent)",
-        white: "var(--white)",
-        darkest: "var(--darkest)",
-        darker: "var(--darker)",
-        dark: "var(--dark)",
-        light: "var(--light)",
-        lighter: "var(--lighter)",
-        lightest: "var(--lightest)",
-        blurred: "var(--blurred)",
-        accenttransparent: "var(--accent-transparent)",
-        blob: "var(--blob)",
+        accenttransparent: "var(--accenttransparent)",
       },
     },
     fontFamily: {

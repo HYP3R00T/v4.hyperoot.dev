@@ -4,8 +4,10 @@ import type { CollectionEntry } from "astro:content";
 // For HeadSEO.astro
 export interface HeadSEOProps {
     title: string,
-    description?: string,
-    ogImage?: string
+    description: string,
+    image: string,
+    imageAlt: string,
+    contentType: string,
 }
 
 // For BaseLayout.astro
@@ -30,6 +32,21 @@ export type ArticleProps = CollectionEntry<"article"> & {
     data: ArticleData;
 };
 
+// Make similar changes to config.ts in content folder
+export type ProjectData = {
+    title: string,
+    description: string,
+    date: Date,
+    tags: string[],
+    githubRepo: string,
+    draft: boolean,
+};
+
+// Define the type for docs collection
+export type ProjectProps = CollectionEntry<"project"> & {
+    data: ProjectData;
+};
+
 // For article/[...slug].astro
 export interface Heading {
     text: string;
@@ -39,6 +56,10 @@ export interface Heading {
 
 // For DocsLayout.astro
 export interface ArticlePostLayoutProps extends ArticleData {
+    headings: Heading[];
+}
+
+export interface ProjectPostLayoutProps extends ProjectData {
     headings: Heading[];
 }
 

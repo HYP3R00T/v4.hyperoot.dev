@@ -1,0 +1,72 @@
+---
+const themes = [
+  { name: "light", label: "Light" },
+  { name: "dark", label: "Dark" },
+  { name: "dracula", label: "Dracula" },
+  { name: "nord", label: "Nord" },
+];
+---
+
+<div id="theme-selector">
+  {
+    themes.map((theme) => (
+      <button
+        class="theme-option"
+        data-theme={theme.name}
+        aria-label={`Select ${theme.label} theme`}
+      >
+        {theme.label}
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  // Theme selector logic
+  const themeSelector = document.getElementById("theme-selector");
+
+  // Apply selected theme
+  const applyTheme = (theme: string) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("site-theme", theme);
+
+    // Update active theme button
+    document.querySelectorAll(".theme-option").forEach((btn) => {
+      btn.classList.toggle("active", btn.getAttribute("data-theme") === theme);
+    });
+  };
+
+  // Event delegation for theme selection
+  themeSelector?.addEventListener("click", (event) => {
+    const themeButton = (event.target as HTMLElement).closest(".theme-option");
+    if (themeButton) {
+      const selectedTheme = themeButton.getAttribute("data-theme");
+      if (selectedTheme) {
+        applyTheme(selectedTheme);
+      }
+    }
+  });
+
+  // Initial theme application
+  const currentTheme = localStorage.getItem("site-theme") || "light";
+  applyTheme(currentTheme);
+</script>
+
+<style>
+  #theme-selector {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .theme-option {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--accent);
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .theme-option.active {
+    background-color: var(--accent);
+    color: var(--dark);
+  }
+</style>

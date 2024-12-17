@@ -17,4 +17,17 @@ const article = defineCollection({
     }),
 });
 
-export const collections = { article };
+
+const project = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        date: z.date(),
+        tags: z.array(z.string()),
+        githubRepo: z.string(), // format: "username/repo"
+        draft: z.boolean().default(false)
+    })
+});
+
+export const collections = { article, project };

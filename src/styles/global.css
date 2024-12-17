@@ -3,44 +3,121 @@
 @tailwind utilities;
 
 @layer base {
+  /* Dark Theme */
   :root {
-    --darkest: #171923;
-    --darker: #2d3748;
-    --dark: #4a5568;
+    /* Background Colors */
+    --bg-base: #181926; /* Foundational background color */
+    --bg-surface: #1e2030; /* Main content area or card background */
+    --bg-elevated: #24273a; /* Overlays, dropdowns, raised elements */
 
-    --light: #a0aec0;
-    --lighter: #e2e8f0;
-    --lightest: #f7fafc;
+    /* Foreground/Text Colors */
+    --fg-base: #cad3f5; /* Main text color */
+    --fg-alternate: #b8c0e0; /* Alternate text color */
+    --fg-muted: #a5adcb; /* Muted text color */
 
-    --white: #f0f8ff;
-    --accent: #63b3ed;
+    /* Accent Colors */
+    --accent: #8aadf4; /* Main accent color */
+    --accenttransparent: #8aadf4a2;
 
-    --accent-transparent: #63b3ed2d;
-    --blurred: #2d374859;
-    --blob: #63b3ed9c;
+    /* Code Theme Colors */
+    --astro-code-color-background: #181926; /* Crust */
+    --astro-code-color-text: #cad3f5; /* Text */
+    --astro-code-token-constant: #c6a0f6; /* Mauve */
+    --astro-code-token-string: #a6da95; /* Green */
+    --astro-code-token-comment: #6e738d; /* Overlay 0 */
+    --astro-code-token-keyword: #c6a0f6; /* Mauve */
+    --astro-code-token-parameter: #ed8796; /* Red */
+    --astro-code-token-function: #8aadf4; /* Blue */
+    --astro-code-token-string-expression: #8bd5ca; /* Teal */
+    --astro-code-token-punctuation: #f0c6c6; /* Flamingo */
+    --astro-code-token-link: #8bd5ca; /* Teal */
+  }
 
-    /* ED64A6 */
-    --astro-code-color-background: #2d374859;
-    --astro-code-color-text: #e2e8f0;
-    --astro-code-token-constant: #b794f4;
-    --astro-code-token-string: #64ed76;
-    --astro-code-token-comment: #718096;
-    --astro-code-token-keyword: #b794f4;
-    --astro-code-token-parameter: #fc8181;
-    --astro-code-token-function: #63b3ed;
-    --astro-code-token-string-expression: #68d391;
-    --astro-code-token-punctuation: #fc8181;
-    --astro-code-token-link: #68d391;
+  [data-theme="light"] {
+    --bg-base: #dce0e8;
+    --bg-surface: #e6e9ef;
+    --bg-elevated: #eff1f5;
+
+    --fg-base: #4c4f69;
+    --fg-alternate: #5c5f77;
+    --fg-muted: #6c6f85;
+
+    --accent: #1e66f5;
+    --accenttransparent: #1e66f5a2;
+
+    --astro-code-color-background: #dce0e8;
+    --astro-code-color-text: #4c4f69;
+    --astro-code-token-constant: #8839ef;
+    --astro-code-token-string: #40a02b;
+    --astro-code-token-comment: #9ca0b0;
+    --astro-code-token-keyword: #8839ef;
+    --astro-code-token-parameter: #d20f39;
+    --astro-code-token-function: #1e66f5;
+    --astro-code-token-string-expression: #179299;
+    --astro-code-token-punctuation: #dd7878;
+    --astro-code-token-link: #179299;
+  }
+
+  /* Dracula Theme */
+  [data-theme="dracula"] {
+    --bg-base: #282a36;
+    --bg-surface: #343746;
+    --bg-elevated: #44475a;
+
+    --fg-base: #f8f8f2;
+    --fg-alternate: #e6e6e6;
+    --fg-muted: #6272a4;
+
+    --accent: #8be9fd;
+    --accenttransparent: #8be9fd99;
+
+    --astro-code-color-background: #282a36;
+    --astro-code-color-text: #f8f8f2;
+    --astro-code-token-constant: #bd93f9;
+    --astro-code-token-string: #50fa7b;
+    --astro-code-token-comment: #6272a4;
+    --astro-code-token-keyword: #ff79c6;
+    --astro-code-token-parameter: #ff5555;
+    --astro-code-token-function: #8be9fd;
+    --astro-code-token-string-expression: #50fa7b;
+    --astro-code-token-punctuation: #ffb86c;
+    --astro-code-token-link: #8be9fd;
+  }
+
+  /* Nord Theme */
+  [data-theme="nord"] {
+    --bg-base: #2e3440;
+    --bg-surface: #3b4252;
+    --bg-elevated: #434c5e;
+
+    --fg-base: #eceff4;
+    --fg-alternate: #e5e9f0;
+    --fg-muted: #d8dee9;
+
+    --accent: #5e81ac;
+    --accenttransparent: #5e81ac99;
+
+    --astro-code-color-background: #2e3440;
+    --astro-code-color-text: #eceff4;
+    --astro-code-token-constant: #b48ead;
+    --astro-code-token-string: #a3be8c;
+    --astro-code-token-comment: #4c566a;
+    --astro-code-token-keyword: #b48ead;
+    --astro-code-token-parameter: #bf616a;
+    --astro-code-token-function: #5e81ac;
+    --astro-code-token-string-expression: #88c0d0;
+    --astro-code-token-punctuation: #d08770;
+    --astro-code-token-link: #88c0d0;
   }
 }
 
 @layer base {
   * {
-    @apply border-dark scroll-smooth;
+    @apply scroll-smooth;
   }
 
   body {
-    @apply bg-background text-light;
+    @apply bg-bg_base text-fg_base;
   }
 }
 
@@ -65,11 +142,11 @@ p {
 }
 
 a {
-  @apply no-underline text-lightest hover:text-accent font-semibold text-lg;
+  @apply no-underline text-fg_base hover:text-accent font-semibold text-lg;
 }
 
 ::selection {
-  @apply bg-accent text-dark;
+  @apply bg-fg_base text-accent;
 }
 
 /* ===== scrollbar ===== */
@@ -81,12 +158,12 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-darker rounded;
+  @apply bg-bg_surface rounded;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-light border-darker rounded;
+  @apply bg-fg_muted border-bg_surface rounded;
 }
 
 /* Handle on hover */
@@ -94,30 +171,10 @@ a {
   @apply bg-accent;
 }
 
-/* ===== pattern ===== */
-.pattern {
-  --dot-bg: hsl(var(--background));
-  --dot-color: hsl(var(--foreground));
-  --dot-size: 1px;
-  --dot-space: 80px;
-  background: linear-gradient(
-        90deg,
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      center / var(--dot-space) var(--dot-space),
-    linear-gradient(
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      center / var(--dot-space) var(--dot-space),
-    var(--dot-color);
-}
-
 /* ===== codeblock ===== */
 
 .astro-code {
-  @apply p-4 mt-2 hover:bg-accenttransparent hover:text-lightest;
+  @apply p-4 mt-2 hover:bg-accenttransparent hover:text-fg_base;
 }
 
 code {
@@ -135,9 +192,9 @@ code {
 }
 
 .prose code:not(.astro-code code) {
-  @apply bg-darkest text-lighter py-1 px-2 rounded;
+  @apply bg-bg_surface text-fg_alternate py-1 px-2 rounded;
 }
 
 .prose p {
-  @apply text-lighter;
+  @apply text-fg_alternate;
 }
