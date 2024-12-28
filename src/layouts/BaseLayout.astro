@@ -1,6 +1,6 @@
 ---
 import HeadSEO from "@/components/core/HeadSEO.astro";
-import ThemeSelector from "@/components/common/ThemeSelector.astro";
+import Menu from "@/components/core/Menu.astro";
 
 import { LOCALE, SITE } from "@/config";
 
@@ -24,10 +24,35 @@ const { title, description, image, imageAlt, contentType } =
 
   <body>
     <main class="flex justify-center">
-      <div class="flex flex-col max-w-7xl min-h-dvh z-40 flex-1">
-        <!-- <ThemeSelector /> -->
+      <div class="fixed top-0 right-0">
+        <Menu />
+      </div>
+      <div class="flex flex-row flex-1 px-[10%]">
         <slot />
       </div>
     </main>
   </body>
 </html>
+
+<!-- <html lang=`${LOCALE.lang ?? "en"}`>
+  <head>
+    <HeadSEO
+      title=`${title ? capitalizeFirstLetter(title) : SITE.title}`
+      description={description}
+      image={image}
+      imageAlt={imageAlt}
+      contentType={contentType}
+    />
+  </head>
+
+  <body>
+    <main class="flex justify-center">
+      <div class="fixed top-0 right-0">
+        <Menu />
+      </div>
+      <div class="flex flex-row flex-1 px-[10%] pt-32">
+        <slot />
+      </div>
+    </main>
+  </body>
+</html> -->

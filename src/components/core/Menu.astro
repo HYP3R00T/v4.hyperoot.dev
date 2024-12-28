@@ -1,0 +1,103 @@
+---
+import { Icon } from "astro-icon/components";
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+---
+
+<div
+  class="z-30 top-0 right-0 p-4 lg:p-20 flex flex-row-reverse items-center gap-6"
+>
+  <div id="menuToggle" class="items-center justify-center">
+    <Icon
+      name="plus"
+      class="aspect-square h-7 transition-transform duration-300 ease-in-out"
+    />
+  </div>
+  <div
+    id="menuPopup"
+    class="top-0 right-0 flex flex-row-reverse items-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"
+  >
+    <div
+      class="flex flex-row gap-6 text-xs uppercase transition-colors duration-200 text-text_muted"
+    >
+      <a
+        href="/"
+        class={currentPath === ""
+          ? "active"
+          : "text-text_muted font-medium hover:text-text_base"}>Home</a
+      >
+      <a
+        href="/article"
+        class={currentPath === "article"
+          ? "active"
+          : "text-text_muted font-medium hover:text-text_base"}
+      >
+        Articles
+      </a>
+      <a
+        href="/project"
+        class={currentPath === "project"
+          ? "active"
+          : "text-text_muted font-medium hover:text-text_base"}
+      >
+        Projects
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .active {
+    @apply text-text_base;
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const menuPopup = document.getElementById("menuPopup");
+    const plusIcon = menuToggle?.querySelector("svg");
+    let lastScrollPosition = 0;
+
+    function toggleMenu() {
+      if (menuPopup && menuToggle && plusIcon) {
+        const isOpen = menuPopup.classList.contains("opacity-100");
+
+        if (isOpen) {
+          // Close menu
+          menuPopup.classList.remove("opacity-100", "pointer-events-auto");
+          menuPopup.classList.add("opacity-0", "pointer-events-none");
+          plusIcon.style.transform = "rotate(0deg)";
+        } else {
+          // Open menu
+          menuPopup.classList.add("opacity-100", "pointer-events-auto");
+          menuPopup.classList.remove("opacity-0", "pointer-events-none");
+          plusIcon.style.transform = "rotate(45deg)";
+        }
+      }
+    }
+
+    function hideMenuOnScroll() {
+      const currentScrollPosition = window.scrollY;
+
+      if (
+        currentScrollPosition > 50 &&
+        menuPopup?.classList.contains("opacity-100")
+      ) {
+        menuPopup.classList.remove("opacity-100", "pointer-events-auto");
+        menuPopup.classList.add("opacity-0", "pointer-events-none");
+        if (plusIcon) {
+          plusIcon.style.transform = "rotate(0deg)";
+        }
+      }
+
+      lastScrollPosition = currentScrollPosition;
+    }
+
+    // Show the menu
+    menuToggle?.addEventListener("click", toggleMenu);
+
+    // Hide the menu on scroll
+    window.addEventListener("scroll", hideMenuOnScroll);
+  });
+</script>
