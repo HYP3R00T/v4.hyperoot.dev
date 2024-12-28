@@ -1,0 +1,21 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="font-special flex flex-col lg:flex-row flex-1">
+  <h1
+    class="sample text-7xl lg:text-9xl tracking-wider flex justify-center text-accent_red pt-16 lg:pt-0"
+  >
+    {title}
+  </h1>
+</div>
+
+<style>
+  @media (min-width: 1024px) {
+    .sample {
+      writing-mode: vertical-rl;
+      text-orientation: sideways;
+      transform: rotate(-180deg);
+    }
+  }
+</style>

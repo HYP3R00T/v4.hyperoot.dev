@@ -4,33 +4,34 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
 
-<div
-  class="z-30 top-0 right-0 p-4 lg:p-20 flex flex-row-reverse items-center gap-6"
->
-  <div id="menuToggle" class="items-center justify-center">
+<div class="z-30 p-4 lg:p-20 flex flex-row-reverse items-center gap-3 lg:gap-6">
+  <div
+    id="menuToggle"
+    class="items-center justify-center aspect-square lg:h-16 cursor-pointer flex"
+  >
     <Icon
       name="plus"
-      class="aspect-square h-7 transition-transform duration-300 ease-in-out"
+      class="h-6 w-6 lg:h-5 lg:w-5 transition-transform duration-300 ease-in-out"
     />
   </div>
   <div
     id="menuPopup"
-    class="top-0 right-0 flex flex-row-reverse items-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"
+    class="flex flex-row-reverse items-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"
   >
     <div
-      class="flex flex-row gap-6 text-xs uppercase transition-colors duration-200 text-text_muted"
+      class="flex flex-row gap-3 lg:gap-6 lg:text-xs uppercase transition-colors duration-200 text-text_muted"
     >
       <a
         href="/"
         class={currentPath === ""
           ? "active"
-          : "text-text_muted font-medium hover:text-text_base"}>Home</a
+          : "text-text_muted font-semibold hover:text-text_base"}>Home</a
       >
       <a
         href="/article"
         class={currentPath === "article"
           ? "active"
-          : "text-text_muted font-medium hover:text-text_base"}
+          : "text-text_muted font-semibold hover:text-text_base"}
       >
         Articles
       </a>
@@ -38,7 +39,7 @@ const currentPath = pathname.slice(1);
         href="/project"
         class={currentPath === "project"
           ? "active"
-          : "text-text_muted font-medium hover:text-text_base"}
+          : "text-text_muted font-semibold hover:text-text_base"}
       >
         Projects
       </a>
@@ -48,7 +49,7 @@ const currentPath = pathname.slice(1);
 
 <style>
   .active {
-    @apply text-text_base;
+    @apply text-accent_red font-semibold;
   }
 </style>
 
