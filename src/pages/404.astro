@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import error404 from "@/assets/images/404.png";
+---
+
+<BaseLayout>
+  <div
+    class="flex flex-col h-screen justify-center items-center cursor-default flex-1"
+  >
+    <div class="flex flex-col justify-center items-center">
+      <Image src={error404} alt="A description of my image." class="lg:w-1/2" />
+    </div>
+  </div>
+</BaseLayout>
