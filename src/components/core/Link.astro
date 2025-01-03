@@ -1,0 +1,60 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="absolute z-30 top-0 right-0 p-8">
+  <div class="relative w-8 h-8">
+    <button
+      id="menuToggle"
+      class="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out"
+    >
+      <Icon
+        name="plus"
+        class="w-8 h-8 transition-transform duration-300 ease-in-out"
+      />
+    </button>
+    <div
+      id="menuPopup"
+      class="absolute top-0 right-0 flex flex-row-reverse items-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out"
+    >
+      <div class="flex flex-row gap-4 text-base">
+        <a href="#" class="hover:text-gray-600 transition-colors duration-200"
+          >Home</a
+        >
+        <a href="#" class="hover:text-gray-600 transition-colors duration-200"
+          >About</a
+        >
+        <a href="#" class="hover:text-gray-600 transition-colors duration-200"
+          >Contact</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const menuPopup = document.getElementById("menuPopup");
+  const plusIcon = menuToggle?.querySelector("svg");
+
+  function toggleMenu() {
+    if (menuPopup && menuToggle && plusIcon) {
+      const isOpen = menuPopup.classList.contains("opacity-100");
+
+      if (isOpen) {
+        // Close menu
+        menuPopup.classList.remove("opacity-100", "pointer-events-auto");
+        menuPopup.classList.add("opacity-0", "pointer-events-none");
+        plusIcon.style.transform = "rotate(0deg)";
+      } else {
+        // Open menu
+        menuPopup.classList.add("opacity-100", "pointer-events-auto");
+        menuPopup.classList.remove("opacity-0", "pointer-events-none");
+        plusIcon.style.transform = "rotate(45deg)";
+      }
+    }
+  }
+
+  // Toggle the menu
+  menuToggle?.addEventListener("click", toggleMenu);
+</script>

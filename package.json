@@ -13,9 +13,18 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^3.1.9",
     "@astrojs/tailwind": "^5.1.2",
+    "@fontsource-variable/dancing-script": "^5.1.0",
+    "@fontsource-variable/inter": "^5.1.0",
+    "@fontsource-variable/jetbrains-mono": "^5.1.1",
+    "@fontsource-variable/roboto-slab": "^5.1.0",
+    "@fontsource/allison": "^5.1.0",
+    "@fontsource/marck-script": "^5.1.0",
+    "@fontsource/square-peg": "^5.1.0",
     "astro": "^4.16.8",
     "astro-icon": "^1.1.1",
+    "astro-pagefind": "^1.7.0",
     "rehype-external-links": "^3.0.0",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3"
   }

@@ -5,119 +5,133 @@
 @layer base {
   /* Dark Theme */
   :root {
-    /* Background Colors */
-    --bg-base: #181926; /* Foundational background color */
-    --bg-surface: #1e2030; /* Main content area or card background */
-    --bg-elevated: #24273a; /* Overlays, dropdowns, raised elements */
+    --background-base: #0e0f13;
+    --background-surface: #13151b;
+    --background-elevated: #181b22;
+    --text-base: #fefffe;
+    --text-muted: #9ba1b0;
+    --text-subtle: #6c717f;
 
-    /* Foreground/Text Colors */
-    --fg-base: #cad3f5; /* Main text color */
-    --fg-alternate: #b8c0e0; /* Alternate text color */
-    --fg-muted: #a5adcb; /* Muted text color */
+    --accent-purple: #b052f7;
+    --accent-blue: #526cf7;
+    --accent-cyan: #52dff7;
+    --accent-teal: #52f7d6;
+    --accent-green: #52f75f;
+    --accent-yellow: #f7df52;
+    --accent-orange: #f79652;
+    --accent-red: #f75253;
 
-    /* Accent Colors */
-    --accent: #8aadf4; /* Main accent color */
-    --accenttransparent: #8aadf4a2;
+    --accent-purple-transparent: #b052f7a2;
+    --accent-blue-transparent: #526cf7a2;
+    --accent-cyan-transparent: #52dff7a2;
+    --accent-teal-transparent: #52f7d6a2;
+    --accent-green-transparent: #52f75fa2;
+    --accent-yellow-transparent: #f7df52a2;
+    --accent-orange-transparent: #f79652a2;
+    --accent-red-transparent: #f75253a2;
 
     /* Code Theme Colors */
-    --astro-code-color-background: #181926; /* Crust */
-    --astro-code-color-text: #cad3f5; /* Text */
-    --astro-code-token-constant: #c6a0f6; /* Mauve */
-    --astro-code-token-string: #a6da95; /* Green */
-    --astro-code-token-comment: #6e738d; /* Overlay 0 */
-    --astro-code-token-keyword: #c6a0f6; /* Mauve */
-    --astro-code-token-parameter: #ed8796; /* Red */
-    --astro-code-token-function: #8aadf4; /* Blue */
-    --astro-code-token-string-expression: #8bd5ca; /* Teal */
-    --astro-code-token-punctuation: #f0c6c6; /* Flamingo */
-    --astro-code-token-link: #8bd5ca; /* Teal */
+    --astro-code-color-background: var(--background-surface);
+    --astro-code-color-text: var(--text-base);
+    --astro-code-token-constant: var(--accent-orange);
+    --astro-code-token-string: var(--accent-green);
+    --astro-code-token-comment: var(--text-subtle);
+    --astro-code-token-keyword: var(--accent-purple);
+    --astro-code-token-parameter: var(--accent-yellow);
+    --astro-code-token-function: var(--accent-blue);
+    --astro-code-token-string-expression: var(--accent-cyan);
+    --astro-code-token-punctuation: var(--accent-red);
+    --astro-code-token-link: var(--accent-red);
+  }
+
+  [data-theme="dark"] {
+    --background-base: #0e0f13;
+    --background-surface: #13151b;
+    --background-elevated: #181b22;
+    --text-base: #fefffe;
+    --text-muted: #9ba1b0;
+    --text-subtle: #6c717f;
+
+    --accent-purple: #b052f7;
+    --accent-blue: #526cf7;
+    --accent-cyan: #52dff7;
+    --accent-teal: #52f7d6;
+    --accent-green: #52f75f;
+    --accent-yellow: #f7df52;
+    --accent-orange: #f79652;
+    --accent-red: #f75253;
+
+    --accent-purple-transparent: #b052f7a2;
+    --accent-blue-transparent: #526cf7a2;
+    --accent-cyan-transparent: #52dff7a2;
+    --accent-teal-transparent: #52f7d6a2;
+    --accent-green-transparent: #52f75fa2;
+    --accent-yellow-transparent: #f7df52a2;
+    --accent-orange-transparent: #f79652a2;
+    --accent-red-transparent: #f75253a2;
+
+    /* Code Theme Colors */
+    --astro-code-color-background: var(--background-surface);
+    --astro-code-color-text: var(--text-base);
+    --astro-code-token-constant: var(--accent-orange);
+    --astro-code-token-string: var(--accent-green);
+    --astro-code-token-comment: var(--text-subtle);
+    --astro-code-token-keyword: var(--accent-purple);
+    --astro-code-token-parameter: var(--accent-yellow);
+    --astro-code-token-function: var(--accent-blue);
+    --astro-code-token-string-expression: var(--accent-cyan);
+    --astro-code-token-punctuation: var(--accent-red);
+    --astro-code-token-link: var(--accent-red);
   }
 
   [data-theme="light"] {
-    --bg-base: #dce0e8;
-    --bg-surface: #e6e9ef;
-    --bg-elevated: #eff1f5;
+    --background-base: #f1f3f5;
+    --background-surface: #e6e9ef;
+    --background-elevated: #d0d5dc;
+    --text-base: #1c1e26;
+    --text-muted: #6c717f;
+    --text-subtle: #9ba1b0;
 
-    --fg-base: #4c4f69;
-    --fg-alternate: #5c5f77;
-    --fg-muted: #6c6f85;
+    --accent-purple: #6a2bde;
+    --accent-blue: #4a71e1;
+    --accent-cyan: #2bc3e5;
+    --accent-teal: #3cc9b8;
+    --accent-green: #4caf50;
+    --accent-yellow: #f1c40f;
+    --accent-orange: #f39c12;
+    --accent-red: #e74c3c;
 
-    --accent: #1e66f5;
-    --accenttransparent: #1e66f5a2;
+    --accent-purple-transparent: #6a2bdea2;
+    --accent-blue-transparent: #4a71e1a2;
+    --accent-cyan-transparent: #2bc3e5a2;
+    --accent-teal-transparent: #3cc9b8a2;
+    --accent-green-transparent: #4caf50a2;
+    --accent-yellow-transparent: #f1c40fa2;
+    --accent-orange-transparent: #f39c12a2;
+    --accent-red-transparent: #e74c3ca2;
 
-    --astro-code-color-background: #dce0e8;
-    --astro-code-color-text: #4c4f69;
-    --astro-code-token-constant: #8839ef;
-    --astro-code-token-string: #40a02b;
-    --astro-code-token-comment: #9ca0b0;
-    --astro-code-token-keyword: #8839ef;
-    --astro-code-token-parameter: #d20f39;
-    --astro-code-token-function: #1e66f5;
-    --astro-code-token-string-expression: #179299;
-    --astro-code-token-punctuation: #dd7878;
-    --astro-code-token-link: #179299;
-  }
-
-  /* Dracula Theme */
-  [data-theme="dracula"] {
-    --bg-base: #282a36;
-    --bg-surface: #343746;
-    --bg-elevated: #44475a;
-
-    --fg-base: #f8f8f2;
-    --fg-alternate: #e6e6e6;
-    --fg-muted: #6272a4;
-
-    --accent: #8be9fd;
-    --accenttransparent: #8be9fd99;
-
-    --astro-code-color-background: #282a36;
-    --astro-code-color-text: #f8f8f2;
-    --astro-code-token-constant: #bd93f9;
-    --astro-code-token-string: #50fa7b;
-    --astro-code-token-comment: #6272a4;
-    --astro-code-token-keyword: #ff79c6;
-    --astro-code-token-parameter: #ff5555;
-    --astro-code-token-function: #8be9fd;
-    --astro-code-token-string-expression: #50fa7b;
-    --astro-code-token-punctuation: #ffb86c;
-    --astro-code-token-link: #8be9fd;
-  }
-
-  /* Nord Theme */
-  [data-theme="nord"] {
-    --bg-base: #2e3440;
-    --bg-surface: #3b4252;
-    --bg-elevated: #434c5e;
-
-    --fg-base: #eceff4;
-    --fg-alternate: #e5e9f0;
-    --fg-muted: #d8dee9;
-
-    --accent: #5e81ac;
-    --accenttransparent: #5e81ac99;
-
-    --astro-code-color-background: #2e3440;
-    --astro-code-color-text: #eceff4;
-    --astro-code-token-constant: #b48ead;
-    --astro-code-token-string: #a3be8c;
-    --astro-code-token-comment: #4c566a;
-    --astro-code-token-keyword: #b48ead;
-    --astro-code-token-parameter: #bf616a;
-    --astro-code-token-function: #5e81ac;
-    --astro-code-token-string-expression: #88c0d0;
-    --astro-code-token-punctuation: #d08770;
-    --astro-code-token-link: #88c0d0;
+    /* Code Theme Colors */
+    --astro-code-color-background: var(--background-surface);
+    --astro-code-color-text: var(--text-base);
+    --astro-code-token-constant: var(--accent-orange);
+    --astro-code-token-string: var(--accent-green);
+    --astro-code-token-comment: var(--text-subtle);
+    --astro-code-token-keyword: var(--accent-purple);
+    --astro-code-token-parameter: var(--accent-yellow);
+    --astro-code-token-function: var(--accent-blue);
+    --astro-code-token-string-expression: var(--accent-cyan);
+    --astro-code-token-punctuation: var(--accent-red);
+    --astro-code-token-link: var(--accent-red);
   }
 }
 
 @layer base {
   * {
-    @apply scroll-smooth;
+    @apply scroll-smooth transition-transform box-border;
   }
 
   body {
-    @apply bg-bg_base text-fg_base;
+    @apply bg-background_base text-text_base;
   }
 }
 
@@ -126,15 +140,15 @@ h1 {
 }
 
 h2 {
-  @apply mt-5 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-wide first:mt-0;
+  @apply mt-5 scroll-m-20 border-b pb-2 text-3xl tracking-wide first:mt-0;
 }
 
 h3 {
-  @apply mt-3 scroll-m-20 text-2xl font-semibold tracking-tight;
+  @apply mt-3 scroll-m-20 text-2xl tracking-tight;
 }
 
 h4 {
-  @apply mt-2 scroll-m-20 text-xl font-semibold tracking-tight;
+  @apply mt-2 scroll-m-20 text-xl tracking-tight;
 }
 
 p {
@@ -142,11 +156,11 @@ p {
 }
 
 a {
-  @apply no-underline text-fg_base hover:text-accent font-semibold text-lg;
+  @apply no-underline text-text_base hover:text-accent_blue;
 }
 
 ::selection {
-  @apply bg-fg_base text-accent;
+  @apply bg-text_base text-background_base;
 }
 
 /* ===== scrollbar ===== */
@@ -158,43 +172,60 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-bg_surface rounded;
+  @apply bg-background_surface rounded;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-fg_muted border-bg_surface rounded;
+  @apply bg-text_subtle border-background_surface rounded;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent;
+  @apply bg-accent_blue;
 }
 
 /* ===== codeblock ===== */
 
 .astro-code {
-  @apply p-4 mt-2 hover:bg-accenttransparent hover:text-fg_base;
+  @apply p-4 mt-2 hover:bg-accent_blue_transparent hover:text-text_base;
 }
 
 code {
-  @apply bg-transparent;
+  @apply bg-transparent font-mono;
 }
 
 /* ===== prose ===== */
 
+.prose {
+  @apply flex flex-col gap-2;
+}
+
 .prose * {
-  @apply my-4 first:my-0;
+  @apply my-2;
 }
 
 .prose iframe {
-  @apply w-full aspect-video h-full;
+  @apply w-full aspect-video h-auto;
 }
 
 .prose code:not(.astro-code code) {
-  @apply bg-bg_surface text-fg_alternate py-1 px-2 rounded;
+  @apply bg-background_elevated text-accent_red py-1 px-2 rounded font-mono;
 }
 
 .prose p {
-  @apply text-fg_alternate;
+  @apply text-text_muted;
+}
+
+.prose ul > li {
+  @apply text-text_muted py-1 list-disc;
+  padding-left: 1.5rem;
+}
+.prose ol > li {
+  @apply text-text_muted py-1 list-decimal;
+  padding-left: 1.5rem;
+}
+
+.prose strong {
+  @apply text-text_base;
 }

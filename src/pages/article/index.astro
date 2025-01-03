@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import Articles from "@/components/article/Articles.astro";
+import StylishHeader from "@/components/core/StylishHeader.astro";
+import SearchBox from "@/components/core/SearchBox.astro";
+---
+
+<BaseLayout>
+  <div class="lg:w-1/5 lg:h-screen lg:sticky flex flex-col lg:top-0">
+    <StylishHeader title="Articles" />
+  </div>
+  <div
+    class="pt-16 lg:pt-48 pb-6 lg:pb-20 px-16 lg:px-0 lg:w-4/5 lg:pr-16 flex flex-col gap-8"
+  >
+    <!-- <SearchBox /> -->
+    <Articles />
+  </div>
+</BaseLayout>

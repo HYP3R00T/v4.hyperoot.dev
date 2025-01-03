@@ -1,0 +1,71 @@
+---
+import Article from "@/components/article/Article.astro";
+import GoBack from "@/components/core/GoBack.astro";
+import HeadSEO from "@/components/core/HeadSEO.astro";
+import Menu from "@/components/core/Menu.astro";
+import ThemeSelector from "@/components/core/ThemeSelector.astro";
+
+import { LOCALE, SITE } from "@/config";
+
+import type { ArticlePostLayoutProps, BaseLayoutProps } from "@/lib/types";
+import { capitalizeFirstLetter } from "@/lib/utils";
+
+const {
+  author,
+  pubDatetime,
+  modDatetime,
+  title,
+  featured,
+  draft,
+  category,
+  tags,
+  description,
+  cover,
+  coverAlt,
+  headings,
+} = Astro.props as ArticlePostLayoutProps;
+---
+
+<html lang=`${LOCALE.lang ?? "en"}`>
+  <head>
+    <HeadSEO
+      title=`${title ? capitalizeFirstLetter(title) : SITE.title}`
+      description={description}
+      image={cover}
+      imageAlt={coverAlt}
+      contentType="article"
+    />
+  </head>
+
+  <body>
+    <main class="flex items-center">
+      <div class="fixed top-0 right-0">
+        <Menu />
+      </div>
+      <div class="fixed top-0 left-0">
+        <GoBack />
+      </div>
+      <div class="fixed bottom-0 right-0">
+        <ThemeSelector />
+      </div>
+      <div class="w-full">
+        <Article
+          author={author}
+          pubDatetime={pubDatetime}
+          modDatetime={modDatetime}
+          title={title}
+          featured={featured}
+          draft={draft}
+          category={category}
+          tags={tags}
+          description={description}
+          cover={cover}
+          coverAlt={coverAlt}
+          headings={headings}
+        >
+          <slot />
+        </Article>
+      </div>
+    </main>
+  </body>
+</html>

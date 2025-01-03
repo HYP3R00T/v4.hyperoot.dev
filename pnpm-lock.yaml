@@ -17,15 +17,42 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.2
         version: 5.1.3(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(typescript@5.7.2))(tailwindcss@3.4.16)
+      '@fontsource-variable/dancing-script':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource-variable/inter':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource-variable/jetbrains-mono':
+        specifier: ^5.1.1
+        version: 5.1.1
+      '@fontsource-variable/roboto-slab':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/allison':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/marck-script':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/square-peg':
+        specifier: ^5.1.0
+        version: 5.1.0
       astro:
         specifier: ^4.16.8
         version: 4.16.17(@types/node@22.10.2)(rollup@4.28.1)(typescript@5.7.2)
       astro-icon:
         specifier: ^1.1.1
         version: 1.1.4
+      astro-pagefind:
+        specifier: ^1.7.0
+        version: 1.7.0(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(typescript@5.7.2))
       rehype-external-links:
         specifier: ^3.0.0
         version: 3.0.0
+      sharp:
+        specifier: ^0.33.5
+        version: 0.33.5
       tailwindcss:
         specifier: ^3.4.14
         version: 3.4.16
@@ -344,6 +371,27 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@fontsource-variable/dancing-script@5.1.0':
+    resolution: {integrity: sha512-SgVT0jPYUn77oqTabyVQesH5eL6FeHUmIDCLPCMrsOb7pbyTrH2PT7g4VElz9J5DAe3qH6NhovxfcSJjVoFluA==}
+
+  '@fontsource-variable/inter@5.1.0':
+    resolution: {integrity: sha512-Wj2dUGP0vUpxRGQTXQTCNJO+aLcFcQm+gUPXfj/aS877bQkEPBPv9JvZJpwdm2vzelt8NTZ+ausKlBCJjh2XIg==}
+
+  '@fontsource-variable/jetbrains-mono@5.1.1':
+    resolution: {integrity: sha512-V+1aRFRvuZ66PpO30s8l/2aADKzpV9VRsO3kSZE+rTMvi4vab3cUcPHMN2z+wAvjkYJO71Yf+g3/Y6pSMmQpVQ==}
+
+  '@fontsource-variable/roboto-slab@5.1.0':
+    resolution: {integrity: sha512-yDXymBKjK3CPrtaS8WbT9kOIWeSl3N5xaW8odaXOPZk9vhbWe/fO9e4VUG8T7ZYRR+RoRtwNWZ7gE4a5lqEIIQ==}
+
+  '@fontsource/allison@5.1.0':
+    resolution: {integrity: sha512-M9lnHuPF7PblddmZNOEAkZxQlNkPZ+cBI2Y+GejMt+VE0l0Ndo4n0M8egG/OzBKooF0TxqbjwB8QSrLc5qWmuA==}
+
+  '@fontsource/marck-script@5.1.0':
+    resolution: {integrity: sha512-Q4ePRHJJNVHCQdSOiHQV+4uWPpSRi3s7pWayPLlTLglHCduviS7nQSauWyEToCRS+02FeY/60+7kNWLW2nox5g==}
+
+  '@fontsource/square-peg@5.1.0':
+    resolution: {integrity: sha512-0z7NIiJPIDvGRk0apfTjY9LIAjBk0V4qBt6goinKmrrW+QHNh+LMV6FXnr5uJXG2kDExXUy5hJQgUc5Dr7GtKg==}
+
   '@iconify/tools@4.0.7':
     resolution: {integrity: sha512-zOJxKIfZn96ZRGGvIWzDRLD9vb2CsxjcLuM+QIdvwWbv6SWhm49gECzUnd4d2P0sq9sfodT7yCNobWK8nvavxQ==}
 
@@ -498,9 +546,40 @@ packages:
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
 
+  '@pagefind/darwin-arm64@1.3.0':
+    resolution: {integrity: sha512-365BEGl6ChOsauRjyVpBjXybflXAOvoMROw3TucAROHIcdBvXk9/2AmEvGFU0r75+vdQI4LJdJdpH4Y6Yqaj4A==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@pagefind/darwin-x64@1.3.0':
+    resolution: {integrity: sha512-zlGHA23uuXmS8z3XxEGmbHpWDxXfPZ47QS06tGUq0HDcZjXjXHeLG+cboOy828QIV5FXsm9MjfkP5e4ZNbOkow==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@pagefind/default-ui@1.3.0':
+    resolution: {integrity: sha512-CGKT9ccd3+oRK6STXGgfH+m0DbOKayX6QGlq38TfE1ZfUcPc5+ulTuzDbZUnMo+bubsEOIypm4Pl2iEyzZ1cNg==}
+
+  '@pagefind/linux-arm64@1.3.0':
+    resolution: {integrity: sha512-8lsxNAiBRUk72JvetSBXs4WRpYrQrVJXjlRRnOL6UCdBN9Nlsz0t7hWstRk36+JqHpGWOKYiuHLzGYqYAqoOnQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@pagefind/linux-x64@1.3.0':
+    resolution: {integrity: sha512-hAvqdPJv7A20Ucb6FQGE6jhjqy+vZ6pf+s2tFMNtMBG+fzcdc91uTw7aP/1Vo5plD0dAOHwdxfkyw0ugal4kcQ==}
+    cpu: [x64]
+    os: [linux]
+
+  '@pagefind/windows-x64@1.3.0':
+    resolution: {integrity: sha512-BR1bIRWOMqkf8IoU576YDhij1Wd/Zf2kX/kCI0b2qzCKC8wcc2GQJaaRMCpzvCCrmliO4vtJ6RITp/AnoYUUmQ==}
+    cpu: [x64]
+    os: [win32]
+
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
+
+  '@polka/url@1.0.0-next.28':
+    resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
 
   '@rollup/pluginutils@5.1.3':
     resolution: {integrity: sha512-Pnsb6f32CD2W3uCaLZIzDmeFyQ2b8UWMFI7xtwUezpcGBDVDW6y9XgAWIlARiGAo6eNF5FK5aQTr0LFyNyqq5A==}
@@ -772,6 +851,11 @@ packages:
 
   astro-icon@1.1.4:
     resolution: {integrity: sha512-sMLkQaevIQLv38WBzb/RDbsmxhg5+X+KcNmpTi9cE6MLurNWU1MPnlO87d9Vwg4HxTenKpDlYp81A3syXFW/gw==}
+
+  astro-pagefind@1.7.0:
+    resolution: {integrity: sha512-PNcJ2cVIEXsK0toTyJa792uieRQjjXZptPn+0QrMjM6ONHxxiLLeQ0ZtAds/tERlIMcMUyAnVCKhuR0se4gDUw==}
+    peerDependencies:
+      astro: ^2.0.4 || ^3 || ^4 || ^5
 
   astro@4.16.17:
     resolution: {integrity: sha512-OuD+BP7U6OqQLKtZ/FJkU2S+TOlifxS/OKUbZOb5p6y+LLBa1J3zHRJrIl7DUSq6eXY+9wSWwbJpD9JS+lqhxA==}
@@ -1797,6 +1881,10 @@ packages:
   package-manager-detector@0.2.7:
     resolution: {integrity: sha512-g4+387DXDKlZzHkP+9FLt8yKj8+/3tOkPv7DVTJGGRm00RkEWgqbFstX1mXJ4M0VDYhUqsTOiISqNOJnhAu3PQ==}
 
+  pagefind@1.3.0:
+    resolution: {integrity: sha512-8KPLGT5g9s+olKMRTU9LFekLizkVIu9tes90O1/aigJ0T5LmyPqTzGJrETnSw3meSYg58YH7JTzhTTW/3z6VAw==}
+    hasBin: true
+
   parse-entities@4.0.2:
     resolution: {integrity: sha512-GG2AQYWoLgL877gQIKeRPGO1xF9+eG1ujIb5soS5gPvLQ1y2o8FL90w2QWNdf9I361Mpp7726c+lj3U0qK1uGw==}
 
@@ -2089,6 +2177,10 @@ packages:
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
 
+  sirv@3.0.0:
+    resolution: {integrity: sha512-BPwJGUeDaDCHihkORDchNyyTvWFhcusy1XMmhEVTQTwGeybFbp8YEmB+njbPnth1FibULBSBVwCQni25XlCUDg==}
+    engines: {node: '>=18'}
+
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
@@ -2183,6 +2275,10 @@ packages:
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
+
+  totalist@3.0.1:
+    resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
+    engines: {node: '>=6'}
 
   trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
@@ -2872,6 +2968,20 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
+  '@fontsource-variable/dancing-script@5.1.0': {}
+
+  '@fontsource-variable/inter@5.1.0': {}
+
+  '@fontsource-variable/jetbrains-mono@5.1.1': {}
+
+  '@fontsource-variable/roboto-slab@5.1.0': {}
+
+  '@fontsource/allison@5.1.0': {}
+
+  '@fontsource/marck-script@5.1.0': {}
+
+  '@fontsource/square-peg@5.1.0': {}
+
   '@iconify/tools@4.0.7':
     dependencies:
       '@iconify/types': 2.0.0
@@ -3049,8 +3159,27 @@ snapshots:
 
   '@oslojs/encoding@1.1.0': {}
 
+  '@pagefind/darwin-arm64@1.3.0':
+    optional: true
+
+  '@pagefind/darwin-x64@1.3.0':
+    optional: true
+
+  '@pagefind/default-ui@1.3.0': {}
+
+  '@pagefind/linux-arm64@1.3.0':
+    optional: true
+
+  '@pagefind/linux-x64@1.3.0':
+    optional: true
+
+  '@pagefind/windows-x64@1.3.0':
+    optional: true
+
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@polka/url@1.0.0-next.28': {}
 
   '@rollup/pluginutils@5.1.3(rollup@4.28.1)':
     dependencies:
@@ -3326,6 +3455,13 @@ snapshots:
       - debug
       - supports-color
 
+  astro-pagefind@1.7.0(astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(typescript@5.7.2)):
+    dependencies:
+      '@pagefind/default-ui': 1.3.0
+      astro: 4.16.17(@types/node@22.10.2)(rollup@4.28.1)(typescript@5.7.2)
+      pagefind: 1.3.0
+      sirv: 3.0.0
+
   astro@4.16.17(@types/node@22.10.2)(rollup@4.28.1)(typescript@5.7.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
@@ -3554,13 +3690,11 @@ snapshots:
     dependencies:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
-    optional: true
 
   color@4.2.3:
     dependencies:
       color-convert: 2.0.1
       color-string: 1.9.1
-    optional: true
 
   combined-stream@1.0.8:
     dependencies:
@@ -3624,8 +3758,7 @@ snapshots:
 
   dequal@2.0.3: {}
 
-  detect-libc@2.0.3:
-    optional: true
+  detect-libc@2.0.3: {}
 
   deterministic-object-hash@2.0.2:
     dependencies:
@@ -4060,8 +4193,7 @@ snapshots:
       is-alphabetical: 2.0.1
       is-decimal: 2.0.1
 
-  is-arrayish@0.3.2:
-    optional: true
+  is-arrayish@0.3.2: {}
 
   is-binary-path@2.1.0:
     dependencies:
@@ -4760,6 +4892,14 @@ snapshots:
 
   package-manager-detector@0.2.7: {}
 
+  pagefind@1.3.0:
+    optionalDependencies:
+      '@pagefind/darwin-arm64': 1.3.0
+      '@pagefind/darwin-x64': 1.3.0
+      '@pagefind/linux-arm64': 1.3.0
+      '@pagefind/linux-x64': 1.3.0
+      '@pagefind/windows-x64': 1.3.0
+
   parse-entities@4.0.2:
     dependencies:
       '@types/unist': 2.0.11
@@ -5146,7 +5286,6 @@ snapshots:
       '@img/sharp-wasm32': 0.33.5
       '@img/sharp-win32-ia32': 0.33.5
       '@img/sharp-win32-x64': 0.33.5
-    optional: true
 
   shebang-command@2.0.0:
     dependencies:
@@ -5168,7 +5307,12 @@ snapshots:
   simple-swizzle@0.2.2:
     dependencies:
       is-arrayish: 0.3.2
-    optional: true
+
+  sirv@3.0.0:
+    dependencies:
+      '@polka/url': 1.0.0-next.28
+      mrmime: 2.0.0
+      totalist: 3.0.1
 
   sisteransi@1.0.5: {}
 
@@ -5296,6 +5440,8 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
+
+  totalist@3.0.1: {}
 
   trim-lines@3.0.1: {}
 
