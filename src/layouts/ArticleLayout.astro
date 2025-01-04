@@ -39,16 +39,16 @@ const {
 
   <body>
     <main class="flex items-center">
-      <div class="fixed top-0 right-0">
+      <div class="z-30 fixed top-0 right-0">
         <Menu />
       </div>
-      <div class="fixed top-0 left-0">
+      <div class="z-30 fixed top-0 left-0">
         <GoBack />
       </div>
-      <div class="fixed bottom-0 right-0">
+      <div class="z-30 fixed bottom-0 right-0">
         <ThemeSelector />
       </div>
-      <div class="w-full">
+      <div class="z-10 w-full">
         <Article
           author={author}
           pubDatetime={pubDatetime}
