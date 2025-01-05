@@ -11,7 +11,7 @@ export interface HeadSEOProps {
 }
 
 // For BaseLayout.astro
-export interface BaseLayoutProps extends HeadSEOProps {}
+export interface BaseLayoutProps extends HeadSEOProps { }
 
 // For FormattedDate.astro
 export interface FormattedDateProps {
@@ -33,7 +33,7 @@ export type ArticleData = {
   coverAlt?: string;
 };
 
-// Define the type for docs collection
+// Define the type for article collection
 export type ArticleProps = CollectionEntry<"article">;
 
 // For article/[...slug].astro
@@ -43,50 +43,29 @@ export interface Heading {
   slug: string;
 }
 
-// For DocsLayout.astro
+// For ArticleLayout.astro
 export interface ArticlePostLayoutProps extends ArticleData {
   headings: Heading[];
 }
-
-// ! Anything below this is not needed as of now
-// Define the type for docs collection
-// export type ArticleProps = CollectionEntry<"article"> & {
-//   data: ArticleData;
-// };
 
 // Make similar changes to config.ts in content folder
 export type ProjectData = {
   title: string;
   description: string;
-  date: Date;
+  pubDatetime?: Date;
+  modDatetime?: Date | null;
   tags: string[];
   githubRepo: string;
+  documentation?: string;
+  featured: boolean;
   draft: boolean;
+  cover?: string;
+  coverAlt?: string;
 };
 
-// Define the type for docs collection
-export type ProjectProps = CollectionEntry<"project"> & {
-  data: ProjectData;
-};
+// Define the type for project collection
+export type ProjectProps = CollectionEntry<"project">;
 
-export interface ProjectPostLayoutProps extends ProjectData {
-  headings: Heading[];
-}
-
-export interface ExperienceProps {
-  job_title: string;
-  description: string;
-  duration: string;
-  tags?: string[];
-  url: string;
-}
-
-export interface ProjectsProps {
-  name: string;
-  description: string;
-  tags?: string[];
-  homepage_url: string;
-}
 
 // For social links (config.ts)
 export interface SocialObjects {
@@ -95,6 +74,7 @@ export interface SocialObjects {
   active: boolean;
   linkTitle: string;
 }
+
 
 // For TableofContents.astro
 export interface HeadingProps {
@@ -108,9 +88,4 @@ export interface HeadingProps {
 // Define heading hierarchy so that we can generate ToC
 export interface HeadingHierarchy extends MarkdownHeading {
   subheadings: HeadingHierarchy[];
-}
-
-export interface SideNavItem {
-  label: string;
-  href: string;
 }

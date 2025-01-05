@@ -3,44 +3,35 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import StylishHeader from "@/components/core/StylishHeader.astro";
 
-import type { PaginateFunction } from 'astro';
 import { Image } from "astro:assets";
-import type { ArticleProps } from "@/lib/types";
+import type { ProjectProps } from "@/lib/types";
 import { getCollection } from "astro:content";
 
 import DefaultImage from "@/assets/images/setup.png";
-import Pagination from "@/components/article/Pagination.astro";
 
-export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
-  const posts: ArticleProps[] = await getCollection("article").then(
-    (entries: ArticleProps[]) => entries.filter((entry) => !entry.data.draft)
-  );
+const posts: ProjectProps[] = await getCollection("project").then(
+  (entries: ProjectProps[]) => entries.filter((entry) => !entry.data.draft)
+);
 
-  posts.sort((a: ArticleProps, b: ArticleProps) => {
-    const aDate = new Date(a.data.modDatetime ?? a.data.pubDatetime).valueOf();
-    const bDate = new Date(b.data.modDatetime ?? b.data.pubDatetime).valueOf();
-    return bDate - aDate;
-  });
+posts.sort((a: ProjectProps, b: ProjectProps) => {
+  const aDate = new Date(a.data.modDatetime ?? a.data.pubDatetime).valueOf();
+  const bDate = new Date(b.data.modDatetime ?? b.data.pubDatetime).valueOf();
+  return bDate - aDate;
+});
 
-  return paginate(posts, {
-    pageSize: 7,
-  });
-}
-
-const { page } = Astro.props;
 ---
 
 <BaseLayout>
   <div class="lg:w-1/5 lg:h-screen lg:sticky flex flex-col lg:top-0">
-    <StylishHeader title="Articles" />
+    <StylishHeader title="Projects" />
   </div>
   <div
     class="pt-16 lg:pt-48 pb-6 lg:pb-20 px-14 lg:px-0 lg:w-4/5 lg:pr-16 flex flex-col gap-8"
   >
     <div class="flex flex-col gap-20">
       {
-        page.data.map((post: ArticleProps) => (
-          <a href={`/article/${post.slug}/`} class="hover:text-text_base hover:lg:bg-background_surface">
+        posts.map((post: ProjectProps) => (
+          <a href={`/project/${post.slug}/`} class="hover:text-text_base hover:lg:bg-background_surface">
             <div class="group flex flex-col gap-4 flex-1 border-background_elevated border">
               <div class="flex flex-col overflow-hidden">
                 <Image
@@ -54,13 +45,12 @@ const { page } = Astro.props;
                 <h3 class="mt-0 font-serif" transition:name={post.data.title}>
                   {post.data.title}
                 </h3>
-                <p class="text-text_muted text-sm">{post.data.description}</p>
+                <p class="text-text_muted text-sm" transition:name=`${post.data.title}description`>{post.data.description}</p>
               </div>
             </div>
           </a>
         ))
       }
-      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} first={page.url.first} last={page.url.last} />
     </div>
   </div>
 </BaseLayout>

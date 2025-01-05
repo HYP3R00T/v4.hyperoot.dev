@@ -1,5 +1,5 @@
 ---
-import Article from "@/components/article/Article.astro";
+import Project from "@/components/project/Project.astro";
 import GoBack from "@/components/core/GoBack.astro";
 import HeadSEO from "@/components/core/HeadSEO.astro";
 import Menu from "@/components/core/Menu.astro";
@@ -7,23 +7,22 @@ import ThemeSelector from "@/components/core/ThemeSelector.astro";
 
 import { LOCALE, SITE } from "@/config";
 
-import type { ArticlePostLayoutProps } from "@/lib/types";
+import type { ProjectData } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
 
 const {
-  author,
+  title,
+  description,
   pubDatetime,
   modDatetime,
-  title,
+  tags,
+  githubRepo,
+  documentation,
   featured,
   draft,
-  category,
-  tags,
-  description,
   cover,
   coverAlt,
-  headings,
-} = Astro.props as ArticlePostLayoutProps;
+} = Astro.props as ProjectData;
 ---
 
 <html lang=`${LOCALE.lang ?? "en"}`>
@@ -43,28 +42,27 @@ const {
         <Menu />
       </div>
       <div class="z-30 fixed top-0 left-0">
-        <GoBack url="/article" />
+        <GoBack url="/project" />
       </div>
       <div class="z-30 fixed bottom-0 right-0">
         <ThemeSelector />
       </div>
       <div class="z-10 w-full">
-        <Article
-          author={author}
+        <Project
+          title={title}
+          description={description}
           pubDatetime={pubDatetime}
           modDatetime={modDatetime}
-          title={title}
+          tags={tags}
+          githubRepo={githubRepo}
+          documentation={documentation}
           featured={featured}
           draft={draft}
-          category={category}
-          tags={tags}
-          description={description}
           cover={cover}
           coverAlt={coverAlt}
-          headings={headings}
         >
           <slot />
-        </Article>
+        </Project>
       </div>
     </main>
   </body>

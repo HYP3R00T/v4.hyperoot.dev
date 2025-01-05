@@ -21,14 +21,20 @@ const article = defineCollection({
 
 const project = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.date(),
-    tags: z.array(z.string()),
-    githubRepo: z.string(), // format: "username/repo"
-    draft: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      pubDatetime: z.date(),
+      modDatetime: z.date().optional().nullable(),
+      tags: z.array(z.string()),
+      githubRepo: z.string(), // format: "username/repo"
+      documentation: z.string().optional(),
+      featured: z.boolean().optional().default(false),
+      draft: z.boolean().default(false),
+      cover: image().optional(),
+      coverAlt: z.string().optional(),
+    }),
 });
 
 export const collections = { article, project };

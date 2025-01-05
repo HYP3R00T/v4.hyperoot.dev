@@ -1,9 +1,6 @@
 import type {
-    ExperienceProps,
-    ProjectsProps,
     SocialObjects,
 } from "@/lib/types";
-
 
 export const SITE = {
     website: "https://hyperoot.dev",
@@ -20,8 +17,6 @@ export const SITE = {
 export const LOCALE = {
     lang: "en", // html lang code. Set this empty and default will be "en"
 }
-
-
 
 export const Socials: SocialObjects[] = [
     {
