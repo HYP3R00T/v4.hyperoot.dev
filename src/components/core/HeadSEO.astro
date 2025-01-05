@@ -9,21 +9,31 @@ import "@/styles/global.css";
 
 import type { HeadSEOProps } from "@/lib/types";
 
-const canonicalURL = new URL(Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-if (Astro.props.image === undefined) {
-  Astro.props.image = new URL("og-image.jpg", canonicalURL);
+// Ensure image URLs are absolute
+function getAbsoluteImageUrl(imageUrl: string | URL) {
+  if (typeof imageUrl === "string" && imageUrl.startsWith("/")) {
+    return new URL(imageUrl, Astro.site).toString();
+  }
+  return imageUrl.toString();
 }
+
+// Default image handling
+const defaultOgImage = getAbsoluteImageUrl("/og-image.jpg");
 
 import { SITE } from "@/config";
 
 const {
   title,
   description = SITE.description,
-  image = SITE.image,
+  image = defaultOgImage,
   imageAlt = SITE.imageAlt,
   contentType = SITE.contentType,
 } = Astro.props as HeadSEOProps;
+
+// Ensure the image URL is absolute
+const absoluteImageUrl = getAbsoluteImageUrl(image);
 ---
 
 <!-- Global Metadata -->
@@ -48,14 +58,14 @@ const {
 <meta property="og:type" content={contentType} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={image} />
+<meta property="og:image" content={absoluteImageUrl} />
 <meta property="og:image:alt" content={imageAlt} />
 
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={image} />
+<meta name="twitter:image" content={absoluteImageUrl} />
 <meta name="twitter:image:alt" content={imageAlt} />
 <meta name="twitter:creator" content={SITE.twitterHandle} />
 
