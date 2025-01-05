@@ -26,9 +26,14 @@ const {
   contentType = SITE.contentType,
 } = Astro.props as HeadSEOProps;
 
+// Generate OG image URL
 let ogImageUrl = image;
-if (typeof image === "string" && image.startsWith("/src/assets/")) {
-  const { src } = await getImage({ src: image, width: 1200, height: 630 });
+if (typeof image === "string" && image.startsWith("../../assets/")) {
+  const { src } = await getImage({
+    src: image.replace("../../", "/src/"),
+    width: 1200,
+    height: 630,
+  });
   ogImageUrl = new URL(src, Astro.site).toString();
 }
 ---
