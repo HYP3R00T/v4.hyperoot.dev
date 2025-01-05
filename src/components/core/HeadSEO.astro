@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import { getImage } from "astro:assets";
 
 import "@fontsource/allison";
 import "@fontsource-variable/inter";
@@ -11,9 +12,9 @@ import type { HeadSEOProps } from "@/lib/types";
 
 const canonicalURL = new URL(Astro.url);
 
-if (Astro.props.ogImage === undefined) {
-  Astro.props.ogImage = new URL("og-image.jpg", canonicalURL);
-}
+// if (Astro.props.ogImage === undefined) {
+//   Astro.props.ogImage = new URL("og-image.jpg", canonicalURL);
+// }
 
 import { SITE } from "@/config";
 
@@ -25,11 +26,11 @@ const {
   contentType = SITE.contentType,
 } = Astro.props as HeadSEOProps;
 
-const coverImage = await import(image);
-const absoluteCoverImageURL = new URL(
-  coverImage.default.src,
-  import.meta.env.SITE
-).href;
+let ogImageUrl = image;
+if (typeof image === "string" && image.startsWith("/src/assets/")) {
+  const { src } = await getImage({ src: image, width: 1200, height: 630 });
+  ogImageUrl = new URL(src, Astro.site).toString();
+}
 ---
 
 <!-- Global Metadata -->
@@ -54,14 +55,14 @@ const absoluteCoverImageURL = new URL(
 <meta property="og:type" content={contentType} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={absoluteCoverImageURL} />
+<meta property="og:image" content={ogImageUrl} />
 <meta property="og:image:alt" content={imageAlt} />
 
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={absoluteCoverImageURL} />
+<meta name="twitter:image" content={ogImageUrl} />
 <meta name="twitter:image:alt" content={imageAlt} />
 <meta name="twitter:creator" content={SITE.twitterHandle} />
 
