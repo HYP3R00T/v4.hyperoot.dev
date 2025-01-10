@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-import StylishHeader from "@/components/core/StylishHeader.astro";
+import StylishHeaderAlt from "@/components/core/StylishHeaderAlt.astro";
 
 import { Image } from "astro:assets";
 import type { ProjectProps } from "@/lib/types";
@@ -23,7 +23,7 @@ posts.sort((a: ProjectProps, b: ProjectProps) => {
 
 <BaseLayout>
   <div class="lg:w-1/5 lg:h-screen lg:sticky flex flex-col lg:top-0">
-    <StylishHeader title="Projects" />
+    <StylishHeaderAlt title="Projects" titleHover="Projects" />
   </div>
   <div
     class="pt-16 lg:pt-48 pb-6 lg:pb-20 px-14 lg:px-0 lg:w-4/5 lg:pr-16 flex flex-col gap-8"

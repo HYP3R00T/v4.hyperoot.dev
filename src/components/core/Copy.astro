@@ -40,37 +40,39 @@ import { Icon } from "astro-icon/components";
 </template>
 
 <script>
-  function makeCopier(block: HTMLElement, button: HTMLButtonElement) {
-    const code = block.querySelector("code")!;
+  document.addEventListener("astro:page-load", () => {
+    function makeCopier(block: HTMLElement, button: HTMLButtonElement) {
+      const code = block.querySelector("code")!;
 
-    async function copier() {
-      await navigator.clipboard.writeText(code.innerText);
-      button.classList.add("clicked");
-      setTimeout(() => {
-        button.classList.remove("clicked");
-      }, 200);
-    }
-    return copier;
-  }
-
-  function addCopyButtons() {
-    const copyButton = (
-      document.getElementById("copyButtonTemplate") as HTMLTemplateElement
-    ).content.firstElementChild!;
-
-    document.querySelectorAll("pre").forEach((block) => {
-      if (navigator.clipboard) {
-        const div = document.createElement("div");
-        div.classList.add("code-buttons");
-
-        const button = copyButton.cloneNode(true) as HTMLButtonElement;
-        button.addEventListener("click", makeCopier(block, button));
-
-        div.appendChild(button);
-        block.parentNode!.insertBefore(div, block);
+      async function copier() {
+        await navigator.clipboard.writeText(code.innerText);
+        button.classList.add("clicked");
+        setTimeout(() => {
+          button.classList.remove("clicked");
+        }, 200);
       }
-    });
-  }
+      return copier;
+    }
 
-  addCopyButtons();
+    function addCopyButtons() {
+      const copyButton = (
+        document.getElementById("copyButtonTemplate") as HTMLTemplateElement
+      ).content.firstElementChild!;
+
+      document.querySelectorAll("pre").forEach((block) => {
+        if (navigator.clipboard) {
+          const div = document.createElement("div");
+          div.classList.add("code-buttons");
+
+          const button = copyButton.cloneNode(true) as HTMLButtonElement;
+          button.addEventListener("click", makeCopier(block, button));
+
+          div.appendChild(button);
+          block.parentNode!.insertBefore(div, block);
+        }
+      });
+    }
+
+    addCopyButtons();
+  });
 </script>
