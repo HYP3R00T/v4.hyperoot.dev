@@ -29,7 +29,7 @@ const currentPath = pathname.slice(1);
       >
       <a
         href="/article"
-        class={currentPath === "article"
+        class={currentPath.startsWith("article")
           ? "active"
           : "text-text_muted font-semibold hover:text-text_base"}
       >
@@ -37,7 +37,7 @@ const currentPath = pathname.slice(1);
       </a>
       <a
         href="/project"
-        class={currentPath === "project"
+        class={currentPath.startsWith("project")
           ? "active"
           : "text-text_muted font-semibold hover:text-text_base"}
       >
