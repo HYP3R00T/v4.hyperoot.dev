@@ -31,36 +31,38 @@ const { page } = Astro.props;
 ---
 
 <BaseLayout>
-  <div class="lg:w-1/5 lg:h-screen lg:sticky flex flex-col lg:top-0">
-    <StylishHeaderAlt title="Articles" titleHover="Articles" />
-  </div>
-  <div
-    class="pt-16 lg:pt-48 pb-6 lg:pb-20 px-14 lg:px-0 lg:w-4/5 lg:pr-16 flex flex-col gap-8"
-  >
-    <div class="flex flex-col gap-20">
-      {
-        page.data.map((post: ArticleProps) => (
-          <a href={`/article/${post.slug}/`} class="hover:text-text_base hover:lg:bg-background_surface">
-            <div class="flex flex-col gap-4 flex-1 border-background_elevated border">
-              <div class="flex flex-col overflow-hidden">
-                <Image
-                  src={post.data.cover ?? DefaultImage}
-                  alt={post.data.coverAlt ?? "Default Image"}
-                  class="lg:aspect-[3/1] object-cover"
-                  transition:name=`${post.data.title}image`
-                />
+  <div class="flex flex-row">
+    <div class="lg:w-1/5 lg:h-screen lg:sticky flex flex-col lg:top-0">
+      <StylishHeaderAlt title="Articles" titleHover="Articles" />
+    </div>
+    <div
+      class="pt-16 lg:pt-48 pb-6 lg:pb-20 px-14 lg:px-0 lg:w-4/5 lg:pr-16 flex flex-col gap-8"
+    >
+      <div class="flex flex-col gap-20">
+        {
+          page.data.map((post: ArticleProps) => (
+            <a href={`/article/${post.slug}/`} class="hover:text-text_base hover:lg:bg-background_surface">
+              <div class="flex flex-col gap-4 flex-1 border-background_elevated border">
+                <div class="flex flex-col overflow-hidden">
+                  <Image
+                    src={post.data.cover ?? DefaultImage}
+                    alt={post.data.coverAlt ?? "Default Image"}
+                    class="lg:aspect-[3/1] object-cover"
+                    transition:name=`${post.data.title}image`
+                  />
+                </div>
+                <div class="flex flex-col px-4 pb-4 ">
+                  <h3 class="mt-0 font-serif" transition:name={post.data.title}>
+                    {post.data.title}
+                  </h3>
+                  <p class="text-text_muted text-sm">{post.data.description}</p>
+                </div>
               </div>
-              <div class="flex flex-col px-4 pb-4 ">
-                <h3 class="mt-0 font-serif" transition:name={post.data.title}>
-                  {post.data.title}
-                </h3>
-                <p class="text-text_muted text-sm">{post.data.description}</p>
-              </div>
-            </div>
-          </a>
-        ))
-      }
-      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} first={page.url.first} last={page.url.last} />
+            </a>
+          ))
+        }
+        <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} first={page.url.first} last={page.url.last} />
+      </div>
     </div>
   </div>
 </BaseLayout>

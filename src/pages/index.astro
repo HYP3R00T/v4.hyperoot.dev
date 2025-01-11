@@ -1,41 +1,99 @@
 ---
+import Hero from "@/components/home/Hero.astro";
+import ScrambleText from "@/components/home/ScrambleText.astro";
+import Social from "@/components/home/Social.astro";
+import { Socials } from "@/config";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <div class="pt-16 lg:pt-48 lg:px-8 px-4 flex flex-col">
-    <h1>Special Menu</h1>
-    <p>
-      Lorem ipsum odor amet, consectetuer adipiscing elit. Natoque luctus
-      aliquam velit vehicula eget venenatis. Felis velit mus pellentesque
-      inceptos faucibus enim class. Amet posuere velit eleifend class dis diam
-      phasellus. Habitasse facilisis torquent non condimentum rutrum nunc ligula
-      natoque augue. Phasellus class dictum dignissim metus dui. Scelerisque
-      pharetra hendrerit nunc nec dictumst; dui ac proin. Diam gravida ut montes
-      nam litora inceptos. Vulputate malesuada elementum aptent felis porta
-      taciti mi semper euismod. Aenean mollis at mus ipsum fringilla praesent
-      pharetra. Scelerisque aliquam habitasse lectus malesuada vestibulum.
-      Lobortis gravida habitasse at, inceptos integer phasellus. Nulla
-      adipiscing class dis senectus porta. Lectus mollis erat ultricies potenti
-      vitae pharetra malesuada congue. Penatibus maecenas sit; felis quis congue
-      ornare efficitur augue. Faucibus curabitur at primis odio habitasse dolor
-      suspendisse. Eleifend libero lobortis augue pretium arcu habitant nulla
-      montes tortor. Dis ante condimentum nam luctus augue primis tincidunt
-      efficitur at. Porta rhoncus purus libero at commodo morbi vitae potenti.
-      Volutpat porttitor viverra faucibus accumsan neque nam mauris. Dapibus
-      vehicula vestibulum quam euismod laoreet varius amet. Quis sociosqu felis
-      nec ante ornare porta. Taciti blandit iaculis pulvinar neque non; conubia
-      rutrum ante amet. Phasellus placerat elementum maximus convallis augue.
-      Nascetur taciti fringilla cursus euismod curae nibh aliquam. Urna
-      penatibus ligula massa a aliquet morbi. Purus tristique malesuada proin
-      quisque parturient vivamus suscipit efficitur. Accumsan ex ultrices dis
-      bibendum metus sagittis tempus hac. Mattis mauris vel sodales a metus
-      arcu. Fringilla lacinia suscipit nam primis montes rhoncus cubilia? Sit
-      mus quam dictum nulla torquent luctus vivamus ligula dolor. Vitae nostra
-      ligula cras mi porttitor ex vitae ad aliquam. Imperdiet nunc massa;
-      conubia condimentum finibus viverra. Hendrerit molestie nostra phasellus
-      netus parturient magna dis donec feugiat. Interdum montes sodales
-      convallis dis ante. Taciti libero urna; enim tincidunt interdum mattis.
-    </p>
+  <div
+    class="w-full lg:px-8 px-4 flex flex-col lg:flex-row items-center lg:items-start gap-8 justify-center"
+  >
+    <div
+      class="flex flex-col w-1/3 pt-16 lg:pt-48 lg:pb-16 justify-between min-h-screen lg:h-screen lg:sticky lg:top-0"
+    >
+      <div class="mt-4 mb-4 w-full">
+        <h1 class="text-6xl md:text-8xl p-0 text-accent_red font-mono">
+          Rajesh Das
+        </h1>
+        <h3 class="text-text_muted">DevOps Engineer</h3>
+      </div>
+      <div class=""><Social /></div>
+    </div>
+    <div class="flex flex-col w-2/3 pt-16 lg:pt-48">
+      <p class="text-text_muted left-1 z-30 font-mono">
+        Lorem ipsum odor amet, consectetuer adipiscing elit. Volutpat montes
+        hendrerit euismod nisi litora hac faucibus rhoncus. Elit primis netus
+        convallis etiam nec curabitur praesent. Nascetur ex condimentum nibh
+        rhoncus quisque suscipit primis. Montes volutpat senectus lobortis cras
+        mus. Blandit ultricies taciti magna congue dis aptent conubia etiam.
+        Urna efficitur venenatis aliquet lectus fusce ligula nascetur? Conubia
+        et montes nec suscipit est sagittis. Dapibus tristique enim ultricies
+        nec fringilla laoreet. Arcu libero fermentum amet, malesuada vel ex
+        phasellus inceptos. Fusce ante non rutrum etiam sollicitudin facilisi.
+        Dictum sit odio conubia suspendisse natoque pulvinar accumsan. Ultrices
+        nec per aliquam feugiat nostra mus. Parturient iaculis accumsan tempus
+        mi lectus augue a pretium. Faucibus dapibus ligula massa fames leo,
+        varius lobortis aliquet. Euismod tempus aliquam curabitur vitae laoreet;
+        placerat cubilia vivamus facilisis. Hac nibh eleifend mollis venenatis,
+        molestie consequat himenaeos? Hendrerit efficitur tempor sodales dui
+        etiam. Risus diam fames accumsan molestie cursus nunc. Etiam dignissim
+        donec egestas augue nisi vestibulum? Orci accumsan bibendum quisque
+        varius, nam dignissim nam. Vel quisque ridiculus etiam magnis laoreet
+        habitant, non finibus. Dolor massa elit bibendum aliquam curae netus
+        montes dignissim. Nascetur imperdiet tristique interdum eleifend hac
+        tortor! Parturient fermentum auctor velit posuere ornare auctor
+        phasellus vivamus magna. Nisi facilisis tortor mollis montes potenti
+        tincidunt. Aliquet curabitur consequat curabitur donec fringilla vivamus
+        convallis. Curae conubia nullam elementum tempus scelerisque amet.
+        Suspendisse mi commodo suscipit eros etiam interdum sed cras aliquam.
+        Dui eros platea dis elementum nullam in lacus sollicitudin fusce. Morbi
+        congue egestas enim adipiscing augue tellus sit. Posuere dis duis et,
+        vivamus fames cras. Felis semper urna imperdiet tortor egestas per
+        feugiat. Himenaeos malesuada montes neque magna efficitur. Pulvinar
+        dolor per erat justo a quis magna arcu. Vulputate netus nostra; faucibus
+        semper gravida nisi fames nostra. Elementum natoque orci id ultricies id
+        aenean. Elementum ultricies suscipit metus torquent vestibulum augue.
+        Neque hac praesent platea arcu praesent magnis efficitur. Nam sed
+        posuere porttitor velit phasellus nam, imperdiet aliquet. Dapibus semper
+        gravida id himenaeos eu habitasse? Lorem ipsum odor amet, consectetuer
+        adipiscing elit. Volutpat montes hendrerit euismod nisi litora hac
+        faucibus rhoncus. Elit primis netus convallis etiam nec curabitur
+        praesent. Nascetur ex condimentum nibh rhoncus quisque suscipit primis.
+        Montes volutpat senectus lobortis cras mus. Blandit ultricies taciti
+        magna congue dis aptent conubia etiam. Urna efficitur venenatis aliquet
+        lectus fusce ligula nascetur? Conubia et montes nec suscipit est
+        sagittis. Dapibus tristique enim ultricies nec fringilla laoreet. Arcu
+        libero fermentum amet, malesuada vel ex phasellus inceptos. Fusce ante
+        non rutrum etiam sollicitudin facilisi. Dictum sit odio conubia
+        suspendisse natoque pulvinar accumsan. Ultrices nec per aliquam feugiat
+        nostra mus. Parturient iaculis accumsan tempus mi lectus augue a
+        pretium. Faucibus dapibus ligula massa fames leo, varius lobortis
+        aliquet. Euismod tempus aliquam curabitur vitae laoreet; placerat
+        cubilia vivamus facilisis. Hac nibh eleifend mollis venenatis, molestie
+        consequat himenaeos? Hendrerit efficitur tempor sodales dui etiam. Risus
+        diam fames accumsan molestie cursus nunc. Etiam dignissim donec egestas
+        augue nisi vestibulum? Orci accumsan bibendum quisque varius, nam
+        dignissim nam. Vel quisque ridiculus etiam magnis laoreet habitant, non
+        finibus. Dolor massa elit bibendum aliquam curae netus montes dignissim.
+        Nascetur imperdiet tristique interdum eleifend hac tortor! Parturient
+        fermentum auctor velit posuere ornare auctor phasellus vivamus magna.
+        Nisi facilisis tortor mollis montes potenti tincidunt. Aliquet curabitur
+        consequat curabitur donec fringilla vivamus convallis. Curae conubia
+        nullam elementum tempus scelerisque amet. Suspendisse mi commodo
+        suscipit eros etiam interdum sed cras aliquam. Dui eros platea dis
+        elementum nullam in lacus sollicitudin fusce. Morbi congue egestas enim
+        adipiscing augue tellus sit. Posuere dis duis et, vivamus fames cras.
+        Felis semper urna imperdiet tortor egestas per feugiat. Himenaeos
+        malesuada montes neque magna efficitur. Pulvinar dolor per erat justo a
+        quis magna arcu. Vulputate netus nostra; faucibus semper gravida nisi
+        fames nostra. Elementum natoque orci id ultricies id aenean. Elementum
+        ultricies suscipit metus torquent vestibulum augue. Neque hac praesent
+        platea arcu praesent magnis efficitur. Nam sed posuere porttitor velit
+        phasellus nam, imperdiet aliquet. Dapibus semper gravida id himenaeos eu
+        habitasse?
+      </p>
+    </div>
   </div>
 </BaseLayout>
