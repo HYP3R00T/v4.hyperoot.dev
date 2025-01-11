@@ -52,6 +52,7 @@ export interface ArticlePostLayoutProps extends ArticleData {
 export type ProjectData = {
   title: string;
   description: string;
+  altDescription: string;
   pubDatetime?: Date;
   modDatetime?: Date | null;
   tags: string[];

@@ -156,7 +156,7 @@ p {
 }
 
 a {
-  @apply no-underline text-text_base hover:text-accent_blue;
+  @apply no-underline text-text_base hover:text-accent_red;
 }
 
 ::selection {
@@ -182,7 +182,7 @@ a {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent_blue;
+  @apply bg-accent_red_transparent;
 }
 
 /* ===== codeblock ===== */

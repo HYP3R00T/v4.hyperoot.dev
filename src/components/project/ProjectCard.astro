@@ -1,0 +1,48 @@
+---
+import type { ProjectProps } from "@/lib/types";
+import { Image } from "astro:assets";
+import DefaultImage from "@/assets/images/setup.png";
+import { Icon } from "astro-icon/components";
+const { id, slug, body, collection, data } = Astro.props as ProjectProps;
+---
+
+<a href={`/project/${slug}/`}>
+  <div
+    class="group flex flex-col md:flex-row flex-1 border border-background_surface hover:text-text_base hover:bg-background_surface"
+  >
+    <div class="flex flex-col overflow-hidden">
+      <Image
+        src={data.cover ?? DefaultImage}
+        alt={data.coverAlt ?? "Default Image"}
+        class="w-full h-auto md:h-full object-cover"
+        transition:name=`${data.title}image`
+      />
+    </div>
+    <div class="flex flex-col justify-between px-4 py-4 gap-2">
+      <div class="flex flex-col">
+        <p
+          class="text-text_muted text-xs uppercase mt-0"
+          transition:name=`${data.title}altDescription`
+        >
+          {data.altDescription}
+        </p>
+        <h3 class="mt-2 font-serif text-3xl" transition:name={data.title}>
+          {data.title}
+        </h3>
+        <p
+          class="text-text_muted text-sm"
+          transition:name=`${data.title}description`
+        >
+          {data.description}
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        {
+          data.tags.map((tag: string) => (
+            <div class="bg-background_elevated rounded px-3 py-1">{tag}</div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</a>
