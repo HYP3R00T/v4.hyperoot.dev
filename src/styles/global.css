@@ -140,7 +140,7 @@ h1 {
 }
 
 h2 {
-  @apply mt-5 scroll-m-20 border-b pb-2 text-3xl tracking-wide first:mt-0;
+  @apply mt-5 scroll-m-20 pb-2 text-3xl tracking-wide first:mt-0;
 }
 
 h3 {
