@@ -33,12 +33,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     AutoImport({
-      imports: [
-        
-        "./src/components/core/Card.astro",
-
-        
-      ],
+      imports: ["./src/components/core/Card.astro"],
     }),
     mdx(),
     icon({
