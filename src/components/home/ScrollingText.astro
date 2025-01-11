@@ -1,0 +1,68 @@
+---
+interface Props {
+  text: string;
+  className?: string;
+}
+
+const { text, className = "" } = Astro.props;
+---
+
+<div
+  class:list={["w-[300px] overflow-hidden whitespace-nowrap", className]}
+  style="mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);"
+>
+  <div class="inline-block scroll-text">
+    {text}
+    <span class="pl-8">•</span>
+    {text}
+  </div>
+</div>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .scroll-text {
+    animation: scroll 20s linear infinite;
+  }
+
+  /* Optional: Pause animation on hover */
+  .scroll-text:hover {
+    animation-play-state: paused;
+  }
+</style>
+
+<script>
+  // This will run on the client
+  function adjustAnimationDuration() {
+    const textElements = document.querySelectorAll(
+      ".scroll-text"
+    ) as NodeListOf<HTMLElement>;
+
+    textElements.forEach((element) => {
+      // Get the text width
+      const textWidth = element.offsetWidth / 2; // Divide by 2 because we duplicate the text
+      const containerWidth = 700;
+
+      // Only animate if text is longer than container
+      if (textWidth > containerWidth) {
+        // Adjust animation duration based on text length
+        const duration = Math.max(20, (textWidth / containerWidth) * 10);
+        element.style.animationDuration = `${duration}s`;
+      } else {
+        // Remove animation if text fits
+        element.style.animation = "none";
+      }
+    });
+  }
+
+  // Run on load and resize
+  window.addEventListener("load", adjustAnimationDuration);
+  window.addEventListener("resize", adjustAnimationDuration);
+</script>

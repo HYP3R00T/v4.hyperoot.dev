@@ -1,0 +1,88 @@
+---
+interface Props {
+  items: string[];
+  className?: string;
+  typingSpeed?: number;
+  pauseDuration?: number;
+}
+
+const {
+  items,
+  className = "",
+  typingSpeed = 100, // ms per character
+  pauseDuration = 2000, // ms to pause after typing each item
+} = Astro.props;
+---
+
+<div class:list={["flex flex-row", className]}>
+  <h3 id="typing-text" class="font-mono"></h3>
+  <h3 class="typing-cursor">|</h3>
+</div>
+
+<style>
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .typing-cursor {
+    animation: blink 1s step-end infinite;
+  }
+</style>
+
+<script define:vars={{ items, typingSpeed, pauseDuration }}>
+  const textElement = document.getElementById("typing-text");
+  let currentItemIndex = 0;
+  let currentCharIndex = 0;
+  let isDeleting = false;
+  let timeoutId;
+
+  function type() {
+    const currentItem = items[currentItemIndex];
+
+    if (isDeleting) {
+      // Deleting text
+      if (currentCharIndex > 0) {
+        textElement.textContent = currentItem.substring(
+          0,
+          currentCharIndex - 1
+        );
+        currentCharIndex--;
+        timeoutId = setTimeout(type, typingSpeed / 2);
+      } else {
+        isDeleting = false;
+        currentItemIndex = (currentItemIndex + 1) % items.length;
+        timeoutId = setTimeout(type, typingSpeed);
+      }
+    } else {
+      // Typing text
+      if (currentCharIndex < currentItem.length) {
+        textElement.textContent = currentItem.substring(
+          0,
+          currentCharIndex + 1
+        );
+        currentCharIndex++;
+        timeoutId = setTimeout(type, typingSpeed);
+      } else {
+        // Pause at the end of typing before starting to delete
+        timeoutId = setTimeout(() => {
+          isDeleting = true;
+          type();
+        }, pauseDuration);
+      }
+    }
+  }
+
+  // Start the typing animation
+  type();
+
+  // Cleanup on page navigation
+  document.addEventListener("astro:before-swap", () => {
+    clearTimeout(timeoutId);
+  });
+</script>
