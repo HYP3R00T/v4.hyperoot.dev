@@ -1,8 +1,5 @@
 ---
-import Hero from "@/components/home/Hero.astro";
-import ScrambleText from "@/components/home/ScrambleText.astro";
 import Social from "@/components/home/Social.astro";
-import { Socials } from "@/config";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
@@ -11,9 +8,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     class="w-full lg:px-8 px-4 flex flex-col lg:flex-row items-center lg:items-start gap-8 justify-center"
   >
     <div
-      class="flex flex-col w-1/3 pt-16 lg:pt-48 lg:pb-16 justify-between min-h-screen lg:h-screen lg:sticky lg:top-0"
+      class="flex flex-col lg:w-1/3 pt-16 lg:pt-48 lg:pb-16 lg:justify-between lg:min-h-screen lg:h-screen lg:sticky lg:top-0 items-center lg:items-start"
     >
-      <div class="mt-4 mb-4 w-full">
+      <div class="mt-4 mb-4 w-full flex flex-col items-center lg:items-start">
         <h1 class="text-6xl md:text-8xl p-0 text-accent_red font-mono">
           Rajesh Das
         </h1>
@@ -21,78 +18,62 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       </div>
       <div class=""><Social /></div>
     </div>
-    <div class="flex flex-col w-2/3 pt-16 lg:pt-48">
-      <p class="text-text_muted left-1 z-30 font-mono">
-        Lorem ipsum odor amet, consectetuer adipiscing elit. Volutpat montes
-        hendrerit euismod nisi litora hac faucibus rhoncus. Elit primis netus
-        convallis etiam nec curabitur praesent. Nascetur ex condimentum nibh
-        rhoncus quisque suscipit primis. Montes volutpat senectus lobortis cras
-        mus. Blandit ultricies taciti magna congue dis aptent conubia etiam.
-        Urna efficitur venenatis aliquet lectus fusce ligula nascetur? Conubia
-        et montes nec suscipit est sagittis. Dapibus tristique enim ultricies
-        nec fringilla laoreet. Arcu libero fermentum amet, malesuada vel ex
-        phasellus inceptos. Fusce ante non rutrum etiam sollicitudin facilisi.
-        Dictum sit odio conubia suspendisse natoque pulvinar accumsan. Ultrices
-        nec per aliquam feugiat nostra mus. Parturient iaculis accumsan tempus
-        mi lectus augue a pretium. Faucibus dapibus ligula massa fames leo,
-        varius lobortis aliquet. Euismod tempus aliquam curabitur vitae laoreet;
-        placerat cubilia vivamus facilisis. Hac nibh eleifend mollis venenatis,
-        molestie consequat himenaeos? Hendrerit efficitur tempor sodales dui
-        etiam. Risus diam fames accumsan molestie cursus nunc. Etiam dignissim
-        donec egestas augue nisi vestibulum? Orci accumsan bibendum quisque
-        varius, nam dignissim nam. Vel quisque ridiculus etiam magnis laoreet
-        habitant, non finibus. Dolor massa elit bibendum aliquam curae netus
-        montes dignissim. Nascetur imperdiet tristique interdum eleifend hac
-        tortor! Parturient fermentum auctor velit posuere ornare auctor
-        phasellus vivamus magna. Nisi facilisis tortor mollis montes potenti
-        tincidunt. Aliquet curabitur consequat curabitur donec fringilla vivamus
-        convallis. Curae conubia nullam elementum tempus scelerisque amet.
-        Suspendisse mi commodo suscipit eros etiam interdum sed cras aliquam.
-        Dui eros platea dis elementum nullam in lacus sollicitudin fusce. Morbi
-        congue egestas enim adipiscing augue tellus sit. Posuere dis duis et,
-        vivamus fames cras. Felis semper urna imperdiet tortor egestas per
-        feugiat. Himenaeos malesuada montes neque magna efficitur. Pulvinar
-        dolor per erat justo a quis magna arcu. Vulputate netus nostra; faucibus
-        semper gravida nisi fames nostra. Elementum natoque orci id ultricies id
-        aenean. Elementum ultricies suscipit metus torquent vestibulum augue.
-        Neque hac praesent platea arcu praesent magnis efficitur. Nam sed
-        posuere porttitor velit phasellus nam, imperdiet aliquet. Dapibus semper
-        gravida id himenaeos eu habitasse? Lorem ipsum odor amet, consectetuer
-        adipiscing elit. Volutpat montes hendrerit euismod nisi litora hac
-        faucibus rhoncus. Elit primis netus convallis etiam nec curabitur
-        praesent. Nascetur ex condimentum nibh rhoncus quisque suscipit primis.
-        Montes volutpat senectus lobortis cras mus. Blandit ultricies taciti
-        magna congue dis aptent conubia etiam. Urna efficitur venenatis aliquet
-        lectus fusce ligula nascetur? Conubia et montes nec suscipit est
-        sagittis. Dapibus tristique enim ultricies nec fringilla laoreet. Arcu
-        libero fermentum amet, malesuada vel ex phasellus inceptos. Fusce ante
-        non rutrum etiam sollicitudin facilisi. Dictum sit odio conubia
-        suspendisse natoque pulvinar accumsan. Ultrices nec per aliquam feugiat
-        nostra mus. Parturient iaculis accumsan tempus mi lectus augue a
-        pretium. Faucibus dapibus ligula massa fames leo, varius lobortis
-        aliquet. Euismod tempus aliquam curabitur vitae laoreet; placerat
-        cubilia vivamus facilisis. Hac nibh eleifend mollis venenatis, molestie
-        consequat himenaeos? Hendrerit efficitur tempor sodales dui etiam. Risus
-        diam fames accumsan molestie cursus nunc. Etiam dignissim donec egestas
-        augue nisi vestibulum? Orci accumsan bibendum quisque varius, nam
-        dignissim nam. Vel quisque ridiculus etiam magnis laoreet habitant, non
-        finibus. Dolor massa elit bibendum aliquam curae netus montes dignissim.
-        Nascetur imperdiet tristique interdum eleifend hac tortor! Parturient
-        fermentum auctor velit posuere ornare auctor phasellus vivamus magna.
-        Nisi facilisis tortor mollis montes potenti tincidunt. Aliquet curabitur
-        consequat curabitur donec fringilla vivamus convallis. Curae conubia
-        nullam elementum tempus scelerisque amet. Suspendisse mi commodo
-        suscipit eros etiam interdum sed cras aliquam. Dui eros platea dis
-        elementum nullam in lacus sollicitudin fusce. Morbi congue egestas enim
-        adipiscing augue tellus sit. Posuere dis duis et, vivamus fames cras.
-        Felis semper urna imperdiet tortor egestas per feugiat. Himenaeos
-        malesuada montes neque magna efficitur. Pulvinar dolor per erat justo a
-        quis magna arcu. Vulputate netus nostra; faucibus semper gravida nisi
-        fames nostra. Elementum natoque orci id ultricies id aenean. Elementum
-        ultricies suscipit metus torquent vestibulum augue. Neque hac praesent
-        platea arcu praesent magnis efficitur. Nam sed posuere porttitor velit
-        phasellus nam, imperdiet aliquet. Dapibus semper gravida id himenaeos eu
-        habitasse?
+    <div class="flex flex-col lg:w-2/3 py-16 lg:py-48 gap-8 px-14">
+      <p class="text-text_muted text-lg">
+        Welcome to my little corner of the internet! I'm a DevOps enthusiast,
+        cloud solutions fan, and Python aficionado. My journey revolves around
+        simplifying workflows with automation and exploring the boundless
+        potential of DevOps.
+      </p>
+      <p class="text-text_muted text-lg">
+        These days, I’m immersing myself in Kubernetes, crafting K3S clusters,
+        and honing my skills in Azure as I prepare for the AZ-104 certification.
+        With a solid foundation in <a
+          href="https://www.credly.com/badges/be903c6e-bc08-4117-bb7e-942e5364e32b/public_url"
+          target="_blank"
+        >
+          Azure Fundamentals
+        </a> and a deep love for Linux, I’m on a mission to master Kubernetes and
+        build a career at the intersection of cloud and automation. This space is
+        where I share my experiments, projects, and lessons—join me as I learn, tinker,
+        and grow!
+      </p>
+      <p class="text-text_muted text-lg">
+        I believe in the power of open source and the magic of <a
+          href="https://github.com/HYP3R00T/"
+          target="_blank"
+        >
+          building in public
+        </a>. Every line of code I write is a step forward in my journey, and I
+        keep it all out in the open for anyone to explore, learn from, or
+        improve. From Ansible scripts to Kubernetes experiments and <a
+          href="https://pypi.org/user/HYP3R00T/"
+          target="_blank"
+        >
+          Python packages
+        </a>, my projects are a testament to my love for collaboration and
+        community.
+      </p>
+      <p class="text-text_muted text-lg">
+        In addition to sharing my <a href="/project"> projects </a>, I write <a
+          href="/article"
+        >
+          blogs and articles
+        </a> about my journey in DevOps, automation, and all things tech. Learning
+        is at the heart of everything I do—it drives me to explore, experiment, and
+        share my discoveries. Whether it’s mastering Kubernetes, diving into cloud
+        solutions, or unraveling the beauty of physics (a subject I hold a master’s
+        degree in), I’m always chasing the thrill of understanding something new.
+      </p>
+      <p class="text-text_muted text-lg">
+        Outside of tech, I unwind with <a
+          href="https://www.chess.com/member/hyp3r00t"
+          target="_blank"
+        >
+          chess
+        </a>, video games, and reflections on the wonders of the universe. This
+        website is a space where all my passions—tech, learning, and
+        curiosity—come together.
       </p>
     </div>
   </div>

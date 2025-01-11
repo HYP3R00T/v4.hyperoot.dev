@@ -218,12 +218,10 @@ code {
 }
 
 .prose ul > li {
-  @apply text-text_muted py-1 list-disc;
-  padding-left: 1.5rem;
+  @apply text-text_muted py-1 list-disc list-outside;
 }
 .prose ol > li {
   @apply text-text_muted py-1 list-decimal;
-  padding-left: 1.5rem;
 }
 
 .prose strong {
