@@ -35,7 +35,7 @@ export default defineConfig({
     AutoImport({
       imports: [
         
-        "./src/components/core/PreviewCard.astro",
+        "./src/components/core/Card.astro",
 
         
       ],

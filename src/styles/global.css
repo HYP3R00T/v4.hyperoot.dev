@@ -201,9 +201,9 @@ code {
   @apply flex flex-col gap-2;
 }
 
-.prose * {
+/* .prose * {
   @apply my-2;
-}
+} */
 
 .prose iframe {
   @apply w-full aspect-video h-auto;
