@@ -1,9 +1,9 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 
+import AutoImport from "astro-auto-import";
 import icon from "astro-icon";
 import mdx from "@astrojs/mdx";
-import pagefind from "astro-pagefind";
 import rehypeExternalLinks from "rehype-external-links";
 import tailwind from "@astrojs/tailwind";
 
@@ -32,10 +32,17 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
+    AutoImport({
+      imports: [
+        
+        "./src/components/core/PreviewCard.astro",
+
+        
+      ],
+    }),
     mdx(),
     icon({
       iconDir: "src/assets/icons",
     }),
-    pagefind(),
   ],
 });
