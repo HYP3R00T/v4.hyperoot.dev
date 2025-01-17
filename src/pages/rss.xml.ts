@@ -1,16 +1,17 @@
-import type { ProjectProps } from "@/lib/types";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import { getSortedPosts } from "@/lib/utils";
 import { SITE } from "@/config";
 
 export async function GET(context: { site: any }) {
   const posts = await getCollection("article");
+  const sortedPosts = getSortedPosts(posts);
   return rss({
     title: SITE.title,
     description: SITE.description,
     site: context.site,
-    items: posts.map((post) => ({
-      title: post.data.title, 
+    items: sortedPosts.map((post) => ({
+      title: post.data.title,
       pubDate: post.data.pubDatetime,
       description: post.data.description,
       link: `/article/${post.slug}`,
