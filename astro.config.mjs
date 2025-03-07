@@ -9,7 +9,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://v4.hyperoot.dev",
+  site: "https://hyperoot.dev",
   build: {
     format: "file",
   },
