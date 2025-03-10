@@ -1,6 +1,7 @@
 ---
 import Social from "@/components/home/Social.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import MainContent from "@/assets/main.md";
 ---
 
 <BaseLayout>
@@ -18,63 +19,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       </div>
       <div class=""><Social /></div>
     </div>
-    <div class="flex flex-col lg:w-2/3 py-16 lg:py-48 gap-8 px-14">
-      <p class="text-text_muted text-lg">
-        Welcome to my little corner of the internet! I'm a DevOps enthusiast,
-        cloud solutions fan, and Python aficionado. My journey revolves around
-        simplifying workflows with automation and exploring the boundless
-        potential of DevOps.
-      </p>
-      <p class="text-text_muted text-lg">
-        These days, I’m immersing myself in Kubernetes, crafting K3S clusters,
-        and honing my skills in Azure as I prepare for the AZ-104 certification.
-        With a solid foundation in <a
-          href="https://www.credly.com/badges/be903c6e-bc08-4117-bb7e-942e5364e32b/public_url"
-          target="_blank"
-        >
-          Azure Fundamentals
-        </a> and a deep love for Linux, I’m on a mission to master Kubernetes and
-        build a career at the intersection of cloud and automation. This space is
-        where I share my experiments, projects, and lessons—join me as I learn, tinker,
-        and grow!
-      </p>
-      <p class="text-text_muted text-lg">
-        I believe in the power of open source and the magic of <a
-          href="https://github.com/HYP3R00T/"
-          target="_blank"
-        >
-          building in public
-        </a>. Every line of code I write is a step forward in my journey, and I
-        keep it all out in the open for anyone to explore, learn from, or
-        improve. From Ansible scripts to Kubernetes experiments and <a
-          href="https://pypi.org/user/HYP3R00T/"
-          target="_blank"
-        >
-          Python packages
-        </a>, my projects are a testament to my love for collaboration and
-        community.
-      </p>
-      <p class="text-text_muted text-lg">
-        In addition to sharing my <a href="/project"> projects </a>, I write <a
-          href="/article"
-        >
-          blogs and articles
-        </a> about my journey in DevOps, automation, and all things tech. Learning
-        is at the heart of everything I do—it drives me to explore, experiment, and
-        share my discoveries. Whether it’s mastering Kubernetes, diving into cloud
-        solutions, or unraveling the beauty of physics (a subject I hold a master’s
-        degree in), I’m always chasing the thrill of understanding something new.
-      </p>
-      <p class="text-text_muted text-lg">
-        Outside of tech, I unwind with <a
-          href="https://www.chess.com/member/hyp3r00t"
-          target="_blank"
-        >
-          chess
-        </a>, video games, and reflections on the wonders of the universe. This
-        website is a space where all my passions—tech, learning, and
-        curiosity—come together.
-      </p>
+    <div
+      class="flex flex-col lg:w-2/3 py-16 lg:py-48 gap-8 px-14 text-text_muted"
+    >
+      <MainContent />
     </div>
   </div>
 </BaseLayout>
